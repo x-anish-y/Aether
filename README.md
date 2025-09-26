@@ -63,7 +63,7 @@ This project was developed by **Team AlgoRHYTHMS** under the theme **UI/UX and F
 ---
 
 ## 🎨 Prototype  
-👉 [Figma Prototype Link](https://www.figma.com/proto/MpAqx02Z9RsI25831auIUp/Untitled?node-id=10-288&m=draw&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=10%3A289)  
+👉 [Website](https://bahana.netlify.app/)  
 
 ---
 
