@@ -147,6 +147,12 @@
             pointer-events: all;
         }
 
+        .text-outline {
+  -webkit-text-stroke: 0.7px black; 
+  -webkit-text-fill-color: inherit; 
+}
+
+
         .hero-text {
             animation: fadeInUp 1s ease-out;
         }
@@ -171,45 +177,57 @@
 
 <body class="overflow-y-hidden min-h-screen bg-custom bg-cover bg-center bg-fixed w-full">
     <header
-        class="rounded-br-[35px] rounded-bl-[35px] sticky top-0 z-50 backdrop-blur-md bg-white/20 border-b border-white/30 text-white body-font">
-        <div class=" mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-            <a class="hover:scale-110 transition-all flex title-font font-bold items-center text-white mb-4 md:mb-0">
-                <img src="Logo.jpg" width="40px" class="rounded-full" alt="">
-                <span class="ml-3 text-xl font-bold">BAHANA</span>
-            </a>
-            <nav
-                class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400 flex text-gray-100 flex-wrap items-center text-base justify-center">
-                <a href="#" class="mr-5 transition-all hover:font-bold hover:scale-105 hover:text-white ">HOME</a>
-                <a href="Scanner.html" class="mr-5 transition-all hover:font-bold hover:scale-105 hover:text-white ">YOUR RECIPE</a>
-                <a href="#" class="mr-5  transition-all hover:font-bold hover:scale-105 hover:text-white ">ABOUT US</a>
-            </nav>
-            <lord-icon class=" hover:scale-110 transition-all invert hidden md:block" src="https://cdn.lordicon.com/bushiqea.json" trigger="hover"
-                style="width:40px;height:40px"></lord-icon>
-        </div>
-    </header>
+    class="rounded-br-[35px] rounded-bl-[35px] sticky top-0 z-50 backdrop-blur-md bg-white/20 border-b border-white/30 text-white body-font">
+    <div class=" mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+      <a class="hover:scale-110 transition-all flex title-font font-bold items-center text-white mb-4 md:mb-0">
+        <img src="Logo.jpg" width="40px" class="border rounded-full" alt="">
+        <span class="ml-3 text-xl  from-orange-500 to-red-500 font-bold">BAHANA</span>
+      </a>
+      <nav
+        class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400 flex text-gray-100 flex-wrap items-center text-base justify-center">
+        <a href="#" class="mr-5 transition-all hover:font-bold hover:scale-105 hover:text-white ">HOME</a>
+        <a href="Scanner.html" class="mr-5 transition-all hover:font-bold hover:scale-105 hover:text-white ">YOUR
+          RECIPE</a>
+        <a href="AboutUs.html" class="mr-5  transition-all hover:font-bold hover:scale-105 hover:text-white ">ABOUT US</a>
+      </nav>
+      <a class="md:block hidden" href="profile.html"><lord-icon
+    src="https://cdn.lordicon.com/hhljfoaj.json"
+    trigger="in"
+    delay="150"
+    state="in-reveal"
+    colors="primary:#000000,secondary:#16c72e,tertiary:#e8e230"
+    style="width:50px;height:50px">
+</lord-icon></a>
+    </div>
+  </header>
 
     <section class="text-white body-font">
         <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
             <div class="text-center lg:w-2/3 w-full hero-text">
-                <h1 class="title-font sm:text-6xl text-6xl mb-4 font-bold text-yellow-300">
+                <h1 class=" text-outline title-font sm:text-6xl text-6xl mb-4 font-bold text-yellow-300">
                     Discover Amazing
                     <span class="text-green-800">Recipes</span>
                 </h1>
-                <p class="mb-8 leading-relaxed text-2xl text-white">
+                <p class="mb-8 leading-relaxed text-2xl text-gray-600">
                     Scan your ingredients and get step-by-step recipes instantly.
                     Turn what you have into something delicious!
                 </p>
                 <div class="flex justify-center">
+                    <a href="Scanner.html">
                     <button
                         class="inline-flex justify-center items-center text-white gap-2 bg-green-600 border-0 py-3 px-8 focus:outline-none hover:bg-green-700 rounded-full text-lg font-semibold transition-all transform hover:scale-105"><lord-icon
-                            src="https://cdn.lordicon.com/hlejxoqz.json" trigger="hover" colors="primary:#ffffff"
+                            src="https://cdn.lordicon.com/hlejxoqz.json" trigger="in"
+    delay="150"
+    state="in-reveal" colors="primary:#ffffff"
                             style="width:50px;height:50px">
                         </lord-icon>
                         Start Cooking
-                    </button>
+                    </button></a>
                     <button
                         class="ml-4 justify-center items-center gap-2 inline-flex text-green-800 bg-white border-0 py-3 px-8 focus:outline-none hover:bg-gray-100 rounded-full text-lg font-semibold transition-all transform hover:scale-105">
-                        Learn More<lord-icon src="https://cdn.lordicon.com/rehjfnou.json" trigger="hover"
+                        Learn More<lord-icon src="https://cdn.lordicon.com/rehjfnou.json" trigger="in"
+    delay="150"
+    state="in-reveal"
                             colors="primary:#16c72e,secondary:#ffffff" style="width:40px;height:40px">
                         </lord-icon>
                     </button>
@@ -221,8 +239,8 @@
     <section class="py-4 overflow-auto md:overflow-y-hidden">
         <div class="container mx-auto px-0 pb-6 md:px-5 md:overflow-y-hidden">
             <div class="text-center mb-20">
-                <h2 class="text-6xl font-bold text-yellow-300 mb-4">Featured Dishes</h2>
-                <p class="text-white text-lg">Hover over any dish to see the details</p>
+                <h2 class="text-6xl text-outline font-bold text-yellow-300 mb-4">Featured Dishes</h2>
+                <p class="text-gray-600 text-lg">Hover over any dish to see the details</p>
             </div>
 
             <div class="rotating-container w my-23 overflow-auto md:overflow-y-hidden">
@@ -243,55 +261,80 @@
         </div>
     </section>
 
-    <section class="py-54">
-        <div class="container mx-auto px-5">
-            <div class="text-center mb-20">
-                <h2 class="text-4xl font-bold text-yellow-300 mb-4">How It Works</h2>
-            </div>
+    <section class="py-24">
+    <div class="container mx-auto px-5">
+        <div class="text-center mb-20">
+            <h2 class="text-4xl text-outline font-bold text-yellow-300 mb-4">
+                <a href="Scanner.html">How It Works</a>
+            </h2>
+        </div>
 
+        <a href="Scanner.html">
             <div class="flex flex-wrap -m-4">
                 <div class="lg:w-1/3 md:w-1/2 p-4">
                     <div
-                        class=" one bg-white/10 backdrop-blur-sm rounded-lg p-8 text-center hover:bg-white/20 transition-all">
-                        <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <span class="text-2xl"><lord-icon src="https://cdn.lordicon.com/rhrmfnhf.json"
-                                    trigger="hover" style="width:50px;height:50px">
-                                </lord-icon></span>
+                        class="one bg-white/10 backdrop-blur-sm rounded-lg p-8 text-center transition-all transform hover:scale-105 hover:bg-white/20 relative overflow-hidden group">
+                        <div class="absolute inset-0 bg-[url('https://picsum.photos/600/400')] bg-cover bg-center opacity-0 group-hover:opacity-20 group-hover:scale-110 transition-all duration-500"></div>
+                        <div class="relative z-10">
+                            <div class="w-16 border-white h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <span class="text-2xl">
+                                    <lord-icon src="https://cdn.lordicon.com/rhrmfnhf.json"
+                                        trigger="in"
+    delay="150"
+    state="in-reveal" style="width:50px;height:50px">
+                                    </lord-icon>
+                                </span>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Scan Ingredients</h3>
+                            <p class="text-gray-200">Take a photo of your ingredients and let our AI identify them</p>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Scan Ingredients</h3>
-                        <p class="text-gray-200">Take a photo of your ingredients and let our AI identify them</p>
                     </div>
                 </div>
 
                 <div class="lg:w-1/3 md:w-1/2 p-4">
                     <div
-                        class="two bg-white/10 backdrop-blur-sm rounded-lg p-8 text-center hover:bg-white/20 transition-all">
-                        <div class="w-16 h-16 bg-green-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <span class="text-2xl"><lord-icon src="https://cdn.lordicon.com/ysrqssiv.json"
-                                    trigger="hover" style="width:50px;height:50px">
-                                </lord-icon></span>
+                        class="two bg-white/10 backdrop-blur-sm rounded-lg p-8 text-center transition-all transform hover:scale-105 hover:bg-white/20 relative overflow-hidden group">
+                        <div class="absolute inset-0 bg-[url('https://picsum.photos/601/400')] bg-cover bg-center opacity-0 group-hover:opacity-20 group-hover:scale-110 transition-all duration-500"></div>
+                        <div class="relative z-10">
+                            <div class="w-16 border-white h-16 bg-green-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <span class="text-2xl">
+                                    <lord-icon src="https://cdn.lordicon.com/ysrqssiv.json"
+                                        trigger="in"
+    delay="150"
+    state="in-reveal" style="width:50px;height:50px">
+                                    </lord-icon>
+                                </span>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Get Recipe</h3>
+                            <p class="text-gray-200">Receive personalized, easy-to-make recipes based on what you have</p>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Get Recipe</h3>
-                        <p class="text-gray-200">Receive personalized, easy-to-make recipes based on what you have</p>
                     </div>
                 </div>
 
                 <div class="lg:w-1/3 md:w-1/2 p-4">
                     <div
-                        class="three bg-white/10 backdrop-blur-sm rounded-lg p-8 text-center hover:bg-white/20 transition-all">
-                        <div class="w-16 h-16 bg-red-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <span class="text-2xl"><lord-icon src="https://cdn.lordicon.com/prgkfaeu.json"
-                                    trigger="hover" style="width:50px;height:50px">
-                                </lord-icon></span>
+                        class="three bg-white/10 backdrop-blur-sm rounded-lg p-8 text-center transition-all transform hover:scale-105 hover:bg-white/20 relative overflow-hidden group">
+                        <div class="absolute inset-0 bg-[url('https://picsum.photos/602/400')] bg-cover bg-center opacity-0 group-hover:opacity-20 group-hover:scale-110 transition-all duration-500"></div>
+                        <div class="relative z-10">
+                            <div class="w-16 h-16 border-white bg-red-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <span class="text-2xl">
+                                    <lord-icon src="https://cdn.lordicon.com/prgkfaeu.json"
+                                        trigger="in"
+    delay="150"
+    state="in-reveal" style="width:50px;height:50px">
+                                    </lord-icon>
+                                </span>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Start Cooking</h3>
+                            <p class="text-gray-200">Follow step-by-step instructions to create amazing dishes in no time</p>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Start Cooking</h3>
-                        <p class="text-gray-200">Follow step-by-step instructions to create amazing dishes in no time
-                        </p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </a>
+    </div>
+</section>
+
 
     <div class="dish-info" id="dishInfo">
         <h3 class="text-xl font-bold text-gray-800 mb-2" id="dishName">Dish Name</h3>

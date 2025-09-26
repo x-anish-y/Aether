@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - AlgoRHYTHMS | Bahana</title>
+    <meta name="description"
+        content="Meet AlgoRHYTHMS, the creators of Bahana - a revolutionary recipe finder app that helps you cook smarter, reduce food waste, and save money.">
+    <link rel="stylesheet" href="./src/output.css" />
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #aa66ea 0%, #1e003f 100%);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: scale(1.05);
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .tech-badge {
+            background: rgba(102, 126, 234, 0.1);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .tech-badge:hover {
+            background: rgba(102, 126, 234, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .bg-custom {
+            background-image: url('bg3.jpg');
+        }
+
+        .sec1 {
+            margin-top: 122px;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-custom bg-cover bg-center bg-fixed w-full">
+    <header
+        class="rounded-br-[35px] rounded-bl-[35px] sticky top-0 z-50 backdrop-blur-md bg-white/20 border-b border-white/30 body-font text-violet-500">
+        <div class="mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+            <a href="home.html"
+                class="hover:scale-110 transition-all flex title-font font-bold items-center mb-4 md:mb-0">
+                <img src="Logo.jpg" width="40px" class="rounded-full" alt="">
+                <span class="ml-3 text-xl font-bold">
+                    BAHANA
+                </span>
+            </a>
+            <nav
+                class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400 flex flex-wrap items-center text-base justify-center">
+                <a href="home.html"
+                    class="mr-5 text-violet-500 transition-all hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-violet-500 hover:to-purple-500 hover:font-bold hover:scale-105">
+                    HOME
+                </a>
+
+                <a href="Scanner.html" class="mr-5 transition-all hover:font-bold hover:scale-105">
+                    YOUR RECIPE
+                </a>
+                <a href="#" class="mr-5 transition-all hover:font-bold hover:scale-105">
+                    ABOUT US
+                </a>
+                <a href="#features" class="mr-5 transition-all hover:font-bold hover:scale-105">
+                    FEATURES
+                </a>
+                <a href="#team" class="mr-5 transition-all hover:font-bold hover:scale-105">
+                    TEAM
+                </a>
+            </nav>
+            <a class="md:block hidden" href="profile.html">
+                <lord-icon src="https://cdn.lordicon.com/hroklero.json" trigger="in" delay="150" state="in-reveal"
+                    colors="primary:#000000,secondary:#a866ee" style="width:50px; height:50px">
+                </lord-icon>
+            </a>
+        </div>
+    </header>
+
+
+    <main class="min-h-screen py-6">
+        <section class=" sec1 py-20 px-6">
+            <div class=" inset-0 bg-gradient-to-br from-blue-600/10 to-purple-600/10"></div>
+            <div class="container mx-auto relative z-10">
+                <div class="text-center mb-16 fade-in">
+                    <h1 class="text-5xl md:text-6xl font-extrabold my-6 tracking-tight">
+                        About <span class="gradient-text">AlgoRHYTHMS</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl leading-relaxed max-w-4xl mx-auto text-gray-700 mb-8">
+                        We are the creators of <strong class="text-orange-500">Bahana</strong> – a revolutionary recipe
+                        finder that transforms everyday cooking into a creative, sustainable, and budget-friendly
+                        experience.
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <div class="  px-6 py-3 flex items-center gap-2">
+                            <i class="fas fa-bolt text-yellow-500"></i>
+                            <span class="font-semibold">2-Second Scans</span>
+                        </div>
+                        <div class="  px-6 py-3 flex items-center gap-2">
+                            <i class="fas fa-shield-alt text-green-500"></i>
+                            <span class="font-semibold">100% Private</span>
+                        </div>
+                        <div class="  px-6 py-3 flex items-center gap-2">
+                            <i class="fas fa-leaf text-emerald-500"></i>
+                            <span class="font-semibold">30% Less Waste</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 px-6 scroll-reveal">
+            <div class="container mx-auto">
+                <div class="grid  md:grid-cols-2 gap-12 items-center">
+                    <div style="border-radius: 22px;" class=" rounded-4xl p-8 shadow-xl card-hover">
+                        <div class="flex items-center rounded-4xl gap-3 mb-4">
+                            <div class="w-12 h-12 rounded-full flex items-center justify-center">
+                                <lord-icon src="https://cdn.lordicon.com/xjncyyrw.json" trigger="in" delay="150"
+                                    state="in-reveal"
+                                    colors="primary:#ffffff,secondary:#3a3347,tertiary:#b26836,quaternary:#ffffff"
+                                    style="width:50px;height:50px">
+                                </lord-icon>
+                            </div>
+                            <h2 class="text-3xl font-bold ml-2 text-gray-800">Our Mission</h2>
+                        </div>
+                        <p class="text-lg text-gray-600 leading-relaxed">
+                            To revolutionize home cooking through instant on-device AI, making every meal an opportunity
+                            for creativity, sustainability, and savings. We empower families to cook smarter, waste
+                            less, and enjoy the process—all while keeping their data completely private.
+                        </p>
+                        <div class="mt-6 flex flex-wrap gap-2">
+                            <span class="tech-badge rounded-full px-4 py-2 text-sm font-medium ">Privacy-First</span>
+                            <span class="tech-badge rounded-full px-4 py-2 text-sm font-medium ">Offline-Ready</span>
+                            <span class="tech-badge rounded-full px-4 py-2 text-sm font-medium ">AI-Powered</span>
+                        </div>
+                    </div>
+
+                    <div style="border-radius: 22px; margin-top: 16px;" class="rounded-3xl p-8 shadow-xl card-hover">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+                                <lord-icon src="https://cdn.lordicon.com/efmfrlbq.json" trigger="in" delay="150"
+                                    state="in-reveal" colors="primary:#000000,secondary:#ffffff,tertiary:#ffffff"
+                                    style="width:50px;height:50px">
+                                </lord-icon>
+                            </div>
+                            <h2 class="text-3xl ml-2 font-bold text-gray-800">Our Vision</h2>
+                        </div>
+                        <p class="text-lg text-gray-600 leading-relaxed">
+                            To become the world's most trusted kitchen companion, inspiring sustainable living and
+                            preventing food waste globally. We envision a future where every household has access to
+                            intelligent, affordable, and private cooking assistance.
+                        </p>
+                        <div class="mt-6 flex flex-wrap gap-2">
+                            <span class="tech-badge rounded-full px-4 py-2 text-sm font-medium text-black">Global
+                                Impact</span>
+                            <span class="tech-badge rounded-full px-4 py-2 text-sm font-medium text-black">Zero
+                                Waste</span>
+                            <span class="tech-badge rounded-full px-4 py-2 text-sm font-medium text-black">Accessible
+                                to All</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="py-16 px-6 bg-white/50 scroll-reveal">
+            <div class="container mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold mb-4 gradient-text">What Makes Bahana Revolutionary?</h2>
+                    <p style="padding-bottom: 20px;" class="text-lg pb-5 text-gray-600 max-w-2xl mx-auto">
+                        Discover the cutting-edge features that set Bahana apart from traditional recipe apps
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="backdrop-blur-md bg-white/20 rounded-2xl p-8 shadow-lg card-hover">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6">
+                            <lord-icon src="https://cdn.lordicon.com/yxsbonud.json" trigger="in" delay="150"
+                                state="in-reveal"
+                                colors="primary:#ffffff,secondary:#000000,tertiary:#e83a30,quaternary:#a866ee,quinary:#ffffff"
+                                style="width:60px;height:60px">
+                            </lord-icon>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-800">Offline-First Intelligence</h3>
+                        <p class="text-gray-600 mb-4">
+                            Scan ingredients and get recipes instantly—even without internet. All processing happens on
+                            your device for maximum privacy.
+                        </p>
+                        <div class="flex items-center gap-2 text-sm text-blue-600 font-medium">
+                            <i class="fas fa-check-circle"></i>
+                            <span>TensorFlow Lite/WebNN powered</span>
+                        </div>
+                    </div>
+
+                    <div class="backdrop-blur-md bg-white/20 rounded-2xl p-8 shadow-lg card-hover">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6">
+                            <lord-icon src="https://cdn.lordicon.com/iamvsnir.json" trigger="in" delay="150"
+                                state="in-reveal"
+                                colors="primary:#6c16c7,secondary:#242424,tertiary:#ffffff,quaternary:#e83a30,quinary:#000000"
+                                style="width:60px;height:60px">
+                            </lord-icon>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-800">Voice-Driven Cooking</h3>
+                        <p class="text-gray-600 mb-4">
+                            Hands messy? Our AI assistant guides you step-by-step with voice commands. Just say "Next
+                            step" to continue cooking.
+                        </p>
+                        <div class="flex items-center gap-2 text-sm font-medium">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Web Speech API enabled</span>
+                        </div>
+                    </div>
+
+                    <div class="backdrop-blur-md bg-white/20 rounded-2xl p-8 shadow-lg card-hover">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center mb-6">
+                            <lord-icon src="https://cdn.lordicon.com/cjipkaez.json" trigger="in" delay="150"
+                                state="in-reveal" colors="primary:#ffffff,secondary:#6c16c7"
+                                style="width:60px;height:60px">
+                            </lord-icon>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-800">Smart Savings Engine</h3>
+                        <p class="text-gray-600 mb-4">
+                            Reduce food waste by up to 30% and cut grocery costs. Turn overlooked ingredients into
+                            complete, budget-friendly meals.
+                        </p>
+                        <div class="flex items-center gap-2 text-sm text-emerald-600 font-medium">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Real-time cost analysis</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 px-6 scroll-reveal">
+            <div class="container mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold mb-4 gradient-text">Impact by Numbers</h2>
+                    <p style="padding-bottom: 20px;" class="text-lg text-gray-600">Measuring our success in meaningful
+                        metrics</p>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="stat-card rounded-2xl p-8 text-white text-center card-hover">
+                        <div class="text-4xl font-bold mb-2">1000+</div>
+                        <div class="text-sm uppercase tracking-wide font-medium opacity-90">Recipes Indexed</div>
+                        <div class="mt-4">
+                            <lord-icon src="https://cdn.lordicon.com/yxsbonud.json" trigger="in" delay="150"
+                                state="in-reveal"
+                                colors="primary:#000000,secondary:#ffffff,tertiary:#e83a30,quaternary:#a866ee,quinary:#6c16c7"
+                                style="width:40px;height:40px">
+                            </lord-icon>
+                        </div>
+                    </div>
+
+                    <div class="stat-card rounded-2xl p-8 text-white text-center card-hover">
+                        <div class="text-4xl font-bold mb-2">0</div>
+                        <div class="text-sm uppercase tracking-wide font-medium opacity-90">Cloud Dependency</div>
+                        <div class="mt-4">
+                            <lord-icon src="https://cdn.lordicon.com/vbfznnhs.json" trigger="in" delay="150"
+                                state="in-reveal" colors="primary:#ffffff" style="width:40px;height:40px">
+                            </lord-icon>
+                        </div>
+                    </div>
+
+                    <div class="stat-card rounded-2xl p-8 text-white text-center card-hover">
+                        <div class="text-4xl font-bold mb-2">30%</div>
+                        <div class="text-sm uppercase tracking-wide font-medium opacity-90">Less Food Waste</div>
+                        <div class="mt-4">
+                            <lord-icon src="https://cdn.lordicon.com/qnbrguva.json" trigger="in" delay="150"
+                                state="in-reveal" colors="primary:#ffffff" style="width:40px;height:40px">
+                            </lord-icon>
+                        </div>
+                    </div>
+
+                    <div class="stat-card rounded-2xl p-8 text-white text-center card-hover">
+                        <div class="text-4xl font-bold mb-2">100%</div>
+                        <div class="text-sm uppercase tracking-wide font-medium opacity-90">Free & Private</div>
+                        <div class="mt-4">
+                            <lord-icon src="https://cdn.lordicon.com/ilgzgiqi.json" trigger="in" delay="150"
+                                state="in-reveal" colors="primary:#000000,secondary:#ffffff,tertiary:#242424"
+                                style="width:40px;height:40px">
+                            </lord-icon>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 px-6 bg-white/50 scroll-reveal">
+            <div class="container mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold mb-4 gradient-text">Why Choose Bahana?</h2>
+                    <p style="margin-bottom: 20px;" class="text-lg  text-gray-600 max-w-2xl mx-auto">
+                        We combine cutting-edge technology with thoughtful design to deliver exceptional experiences
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div
+                        class="bg-gradient-to-br backdrop-blur-md bg-white/20 from-blue-50 to-blue-100 rounded-2xl p-8 card-hover">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center">
+                                <lord-icon src="https://cdn.lordicon.com/nwfpiryp.json" trigger="in" delay="150"
+                                    state="in-dynamic"
+                                    colors="primary:#000000,secondary:#a866ee,tertiary:#a866ee,quaternary:#6c16c7"
+                                    style="width:50px;height:50px">
+                                </lord-icon>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800">World-Class UI/UX</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            Clean, vibrant design with intuitive navigation makes every interaction inspiring and
+                            frustration-free.
+                        </p>
+                        <ul class="space-y-2 text-sm text-gray-600">
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check "></i>
+                                <span>60fps smooth animations</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check "></i>
+                                <span>Mobile-first responsive design</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check "></i>
+                                <span>Intuitive gesture controls</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div
+                        class="bg-gradient-to-br backdrop-blur-md bg-white/20 from-purple-50 to-purple-100 rounded-2xl p-8 card-hover">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center">
+                                <lord-icon src="https://cdn.lordicon.com/ilgzgiqi.json" trigger="in" delay="150"
+                                    state="in-reveal" colors="primary:#000000,secondary:#6c16c7,tertiary:#6c16c7"
+                                    style="width:50px;height:50px">
+                                </lord-icon>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800">Cutting-Edge Privacy</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            On-device machine learning means no cloud uploads or hidden costs. Every scan stays secure
+                            and offline.
+                        </p>
+                        <ul class="space-y-2 text-sm text-gray-600">
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-purple-500"></i>
+                                <span>Zero data collection</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-purple-500"></i>
+                                <span>Local processing only</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-purple-500"></i>
+                                <span>No subscription fees</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div
+                        class="bg-gradient-to-br backdrop-blur-md bg-white/20 from-emerald-50 to-emerald-100 rounded-2xl p-8 card-hover">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center">
+                                <lord-icon src="https://cdn.lordicon.com/zwhtczso.json" trigger="in" delay="150"
+                                    state="in-reveal" colors="primary:#000000,secondary:#6c16c7,tertiary:#6c16c7"
+                                    style="width:50px;height:50px">
+                                </lord-icon>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800">Built to Scale</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            Ultra-fast, cross-device performance. Ready to support millions, with zero downtime and
+                            simple updates.
+                        </p>
+                        <ul class="space-y-2 text-sm text-gray-600">
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-emerald-500"></i>
+                                <span>React + Preact optimized</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-emerald-500"></i>
+                                <span>IndexedDB caching</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-emerald-500"></i>
+                                <span>PWA technology</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section id="team" class="py-16 px-6 bg-white/50 scroll-reveal">
+            <div class="container mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold mb-4 gradient-text">Meet the Team</h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                        Bahana is a revolutionary recipe finder app created to transform everyday cooking into a
+                        creative, sustainable, and budget-friendly experience.
+                    </p>
+                </div>
+
+                <div class=" rounded-3xl p-8 shadow-xl">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-4 text-gray-800">Our Journey</h3>
+                            <p class="text-gray-600 mb-4">
+                                Bahana was born from the challenge of solving "dinner paralysis" - helping people
+                                discover what to cook with ingredients they already have. The app combines cutting-edge
+                                AI technology with intuitive design to make cooking more enjoyable, sustainable, and
+                                budget-friendly.
+                            </p>
+                        </div>
+
+                        <div class="text-center">
+                            <div class="bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl p-8">
+                                <i class="fas fa-trophy text-6xl text-violet-500 mb-4"></i>
+                                <h4 class="text-xl font-bold mb-2 text-gray-800">Bahana's Journey</h4>
+                                <p class="text-gray-600 mb-4">
+                                    From concept to reality, Bahana was developed to solve everyday cooking challenges
+                                    with innovative technology and thoughtful design.
+                                </p>
+                                <div class="flex justify-center gap-4">
+                                    <div class="text-center">
+                                        <div class="text-2xl font-bold text-blue-600">12-16</div>
+                                        <div class="text-sm text-gray-600">Weeks to Launch</div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="text-2xl font-bold ">5</div>
+                                        <div class="text-sm text-gray-600">Team Members</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-8">
+                    <p class="text-gray-600">
+                        Special thanks to Thakur College of Engineering & Technology (TCET), Mumbai for providing the
+                        platform to innovate and develop Bahana.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 px-6 scroll-reveal">
+            <div class="container mx-auto">
+                <div class="bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl p-12  text-center">
+                    <h2 class="text-4xl font-bold mb-4">Ready to Transform Your Cooking Experience?</h2>
+                    <p class="text-xl mb-8 opacity-90">
+                        Join thousands of users who are already cooking smarter, saving money, and reducing waste with
+                        Bahana.
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <a href="home.html"
+                            class="backdrop-blur-md stat-card text-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-500 transition-all transform hover:scale-105">
+                            Get Started Now
+                        </a>
+                        <a href="#features"
+                            class="border-2 border  px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-all transform hover:scale-105">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Enhanced Footer -->
+    <footer class="bg-gray-900  py-12 px-6">
+        <div class="container mx-auto">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div class="text-center">
+                    <div class="flex items-center justify-center gap-2 mb-4">
+                        <img src="Logo.jpg" width="30px" class="rounded-full" alt="">
+                        <span class="text-xl font-bold">BAHANA</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">
+                        The smart, private, and offline recipe finder that helps you cook better and waste less.
+                    </p>
+                </div>
+
+                <div class="text-center">
+                    <h4 class="font-semibold mb-4">Product</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="home.html" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="" class="hover:text-white transition-colors">Your Recipe</a></li>
+                        <li><a href="" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#features" class="hover:text-white transition-colors">Features</a></li>
+                    </ul>
+                </div>
+
+
+
+                <div class="text-center">
+                    <h4 class="font-semibold mb-4">Connect</h4>
+                    <div class="flex justify-center gap-4 mb-4">
+                        <a href="https://github.com/x-anish-y/Aether.git"
+                            class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/anish-sasmal-685081330/"
+                            class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="https://anni-twitter.netlify.app/"
+                            class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-400 text-sm">
+                        Contact: team@algorithms.bahana
+                    </p>
+                </div>
+            </div>
+
+            <div style="margin-bottom: 20px;" class="border-t border-gray-800 pt-8 text-center">
+                <p style="margin-top: 20px;" class="text-gray-400 text-sm">
+                    © 2025 AlgoRHYTHMS. All rights reserved. |
+                    <span class="hover:text-white transition-colors cursor-pointer">Privacy Policy</span> |
+                    <span class="hover:text-white transition-colors cursor-pointer">Terms of Service</span>
+                </p>
+                <p class="text-gray-500 text-xs mt-2">
+                    Developed with passion at TCET Mumbai
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="AboutUs.js"></script>
+</body>
+
+</html>

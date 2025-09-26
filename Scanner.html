@@ -1,140 +1,628 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Find your recipe</title>
-  <link rel="stylesheet" href="./src/output.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BAHANA - Smart Recipe Finder</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.lordicon.com/lordicon.js"></script>
+  <script src="Scanner.js"></script>
+  <script src="Scanner2.js"></script>
   <style>
-    body {
-      background: url("https://wallpapercave.com/wp/wp3104899.jpg") no-repeat center center fixed;
-      background-size: cover;
+    .recipe-card {
+      background: linear-gradient(145deg, #ffffff, #f8fafc);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
+    .recipe-card:hover {
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      transform: translateY(-4px);
+    }
+
+    .ingredient-chip {
+      background: linear-gradient(135deg, #fbbf24, #f59e0b);
+      animation: fadeIn 0.3s ease-out;
+    }
+
+    .progress-ring {
+      transform: rotate(-90deg);
+    }
+
+    .bg-custom {
+      background-image: url('bg2.jpg');
+    }
+
+    .scanning-line {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(to bottom, transparent, #3b82f6, transparent);
+      opacity: 0;
+    }
+
+    .scanning-active .scanning-line {
+      opacity: 1;
+      animation: scan 2s linear infinite;
     }
   </style>
 </head>
-<body class="bg-gray-50">
 
+<body class="min-h-screen bg-custom bg-cover bg-center bg-fixed w-full">
   <header
-        class="rounded-br-[35px] rounded-bl-[35px] sticky top-0 z-50 backdrop-blur-md bg-white/20 border-b border-white/30 text-white body-font">
-        <div class=" mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-            <a class="hover:scale-110 transition-all flex title-font font-bold items-center text-white mb-4 md:mb-0">
-                <img src="Logo.jpg" width="40px" class="rounded-full" alt="">
-                <span class="ml-3 text-xl font-bold">BAHANA</span>
-            </a>
-            <nav
-                class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400 flex text-gray-100 flex-wrap items-center text-base justify-center">
-                <a href="home.html" class="mr-5 transition-all hover:font-bold hover:scale-105 hover:text-white ">HOME</a>
-                <a href="#" class="mr-5 transition-all hover:font-bold hover:scale-105 hover:text-white ">YOUR RECIPE</a>
-                <a href="#" class="mr-5  transition-all hover:font-bold hover:scale-105 hover:text-white ">ABOUT US</a>
-            </nav>
-            <lord-icon class=" hover:scale-110 transition-all invert hidden md:block" src="https://cdn.lordicon.com/bushiqea.json" trigger="hover"
-                style="width:40px;height:40px"></lord-icon>
-        </div>
-    </header>
-
-  <main class="flex flex-col justify-center items-center py-16 space-y-12">
-
-    <div class="flex flex-col md:flex-row gap-8 items-start w-full max-w-5xl">
-
-      <div class="w-full md:w-1/2 h-72">
-        <label for="file-upload"
-          class="flex flex-col justify-center items-center h-full border-2 border-dashed border-gray-300 rounded-lg 
-                 text-center cursor-pointer bg-white shadow-md hover:border-blue-400 transition">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-gray-400 mb-4" fill="none"
-               viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round"
-              d="M7 16a4 4 0 01-.88-7.903A5.5 5.5 0 1118.5 14H17m-5-3v6m0 0l-3-3m3 3l3-3"/>
-          </svg>
-
-          <p class="text-gray-600 text-sm">
-            Drag and drop or <span class="text-blue-500 underline">upload an image</span>
-          </p>
-        </label>
-        <input id="file-upload" type="file" class="hidden" />
-      </div>
-
-      <div id="recipe-steps" class="w-full md:w-1/2 h-72 bg-white p-6 rounded-lg shadow-md overflow-y-auto">
-        <h2 class="text-xl font-semibold text-gray-800 mb-4">Recipe Steps</h2>
-        <div id="paneer-tikka" class="mb-6">
-          <h3 class="font-medium text-gray-900">Paneer Tikka</h3>
-          <ol class="list-decimal list-inside space-y-1 text-gray-700">
-            <li>Marinate paneer with yogurt and spices.</li>
-            <li>Skewer with veggies.</li>
-            <li>Grill until golden brown.</li>
-            <li>Serve hot with chutney.</li>
-          </ol>
-        </div>
-        <div id="veggie-pasta" class="mb-6">
-          <h3 class="font-medium text-gray-900">Veggie Pasta</h3>
-          <ol class="list-decimal list-inside space-y-1 text-gray-700">
-            <li>Boil pasta until al dente.</li>
-            <li>Sauté vegetables with olive oil.</li>
-            <li>Add tomato sauce & spices.</li>
-            <li>Mix pasta & garnish with basil.</li>
-          </ol>
-        </div>
-        <div id="stir-fry">
-          <h3 class="font-medium text-gray-900">Vegetable Stir Fry</h3>
-          <ol class="list-decimal list-inside space-y-1 text-gray-700">
-            <li>Chop assorted vegetables.</li>
-            <li>Stir fry in sesame oil.</li>
-            <li>Add soy sauce & garlic.</li>
-            <li>Serve with rice or noodles.</li>
-          </ol>
-        </div>
-      </div>
-
+    class="rounded-br-[35px] rounded-bl-[35px] sticky top-0 z-50 backdrop-blur-md bg-white/20 border-b border-white/30 text-white body-font">
+    <div class="mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+      <a href="home.html" class="hover:scale-110 transition-all flex title-font font-bold items-center mb-4 md:mb-0">
+        <img src="Logo.jpg" width="40px" class="rounded-full" alt="">
+        <span class="ml-3 text-xl font-bold bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">
+          BAHANA
+        </span>
+      </a>
+      <nav
+        class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400 flex flex-wrap items-center text-base justify-center">
+        <a href="home.html"
+          class="mr-5 transition-all hover:font-bold hover:scale-105 bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">
+          HOME
+        </a>
+        <a href=""
+          class="mr-5 transition-all hover:font-bold hover:scale-105 bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">
+          YOUR RECIPE
+        </a>
+        <a href="AboutUs.html"
+          class="mr-5 transition-all hover:font-bold hover:scale-105 bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">
+          ABOUT US
+        </a>
+      </nav>
+      <a class="md:block hidden" href="profile.html"><lord-icon src="https://cdn.lordicon.com/hhljfoaj.json"
+          trigger="hover" colors="primary:#ffffff,secondary:#e86830,tertiary:#e88c30" style="width:40px;height:40px">
+        </lord-icon></a>
     </div>
+  </header>
 
-    <section class="text-gray-600 body-font w-full">
-      <div class="container px-5 mx-auto">
-        <div class="flex flex-wrap -m-4 justify-center">
 
-          <div class="p-4 md:w-1/3 w-full">
-            <a href="#paneer-tikka">
-              <div class="h-full border-2 border-gray-200 rounded-lg overflow-hidden bg-white shadow-md hover:shadow-lg transition">
-                <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="https://bing.com/th?id=OSK.604d9a439cb00d32875d08842ef36ebb" alt="Paneer Tikka">
-                <div class="p-6">
-                  <h1 class="title-font text-lg font-medium text-gray-900 mb-2">Paneer Tikka</h1>
-                  <p class="text-sm text-gray-500 mb-1">Vegetarian | Quick</p>
-                  <p class="text-sm text-gray-500 mb-3">Time to prepare: 25 mins</p>
-                </div>
-              </div>
-            </a>
-          </div>
-
-          <div class="p-4 md:w-1/3 w-full">
-            <a href="#veggie-pasta">
-              <div class="h-full border-2 border-gray-200 rounded-lg overflow-hidden bg-white shadow-md hover:shadow-lg transition">
-                <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="https://bing.com/th?id=OSK.0ff9bbab23b2d87248e290ae348e875e" alt="Veggie Pasta">
-                <div class="p-6">
-                  <h1 class="title-font text-lg font-medium text-gray-900 mb-2">Veggie Pasta</h1>
-                  <p class="text-sm text-gray-500 mb-1">Vegetarian | Quick</p>
-                  <p class="text-sm text-gray-500 mb-3">Time to prepare: 20 mins</p>
-                </div>
-              </div>
-            </a>
-          </div>
-
-          <div class="p-4 md:w-1/3 w-full">
-            <a href="#stir-fry">
-              <div class="h-full border-2 border-gray-200 rounded-lg overflow-hidden bg-white shadow-md hover:shadow-lg transition">
-                <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="https://bing.com/th?id=OSK.b58cde29c7d6a77370caa3c5fb22fcc6" alt="Vegetable Stir Fry">
-                <div class="p-6">
-                  <h1 class="title-font text-lg font-medium text-gray-900 mb-2">Vegetable Stir Fry</h1>
-                  <p class="text-sm text-gray-500 mb-1">Vegetarian | Quick</p>
-                  <p class="text-sm text-gray-500 mb-3">Time to prepare: 15 mins</p>
-                </div>
-              </div>
-            </a>
-          </div>
-
-        </div>
-      </div>
+  <main class="container mx-auto px-4 py-8">
+    <section class="text-center mb-12 animate-fade-in">
+      <h1
+        class="text-5xl md:text-6xl font-bold bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent mb-4">
+        Smart Recipe Finder
+      </h1>
+      <p class="text-xl  dark:text-gray-300 max-w-2xl mx-auto">
+        Upload your ingredients and discover amazing recipes instantly with AI-powered suggestions
+      </p>
     </section>
 
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+
+      <div class="lg:col-span-1 space-y-6">
+
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 animate-fade-in">
+          <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center">
+            <span
+              class="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center mr-3 text-white text-sm"><lord-icon
+                src="https://cdn.lordicon.com/rhrmfnhf.json" trigger="in" delay="150" state="in-reveal"
+                style="width:25px;height:25px">
+              </lord-icon></span>
+            Upload Ingredients
+          </h2>
+
+          <div id="uploadArea"
+            class="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-8 text-center hover:border-orange-500 dark:hover:border-orange-400 transition-colors cursor-pointer relative overflow-hidden">
+            <div class="scanning-line"></div>
+            <lord-icon src="https://cdn.lordicon.com/smwmetfi.json" trigger="in" delay="150" state="in-reveal"
+              colors="primary:#f97316" style="width:64px;height:64px" class="mx-auto mb-4"></lord-icon>
+            <p class="text-gray-600 dark:text-gray-400 mb-2">Drag and drop your image here</p>
+            <p class="text-sm text-gray-500 dark:text-gray-500">or click to browse</p>
+            <input type="file" id="fileInput" class="hidden" accept="image/*">
+          </div>
+
+          <div id="imagePreview" class="hidden mt-4">
+            <img id="previewImg" class="w-full h-48 object-cover rounded-lg shadow-md" alt="Preview">
+            <button id="removeImage" class="mt-2 text-red-500 hover:text-red-700 text-sm flex items-center">
+              <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd"
+                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                  clip-rule="evenodd"></path>
+              </svg>
+              Remove image
+            </button>
+          </div>
+
+          <button id="scanBtn"
+            class="w-full mt-4 bg-gradient-to-r from-orange-500 to-red-500 text-white py-3 rounded-lg font-semibold hover:from-orange-600 hover:to-red-600 transform hover:scale-105 transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed">
+            <span id="scanText">Scan Ingredients</span>
+            <span id="scanLoader" class="hidden">Scanning... 🔍</span>
+          </button>
+        </div>
+
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 animate-fade-in">
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center">
+            <span
+              class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center mr-2 text-white text-xs"><lord-icon
+                src="https://cdn.lordicon.com/prgkfaeu.json" trigger="in" delay="150" state="in-reveal"
+                style="width:25px;height:25px">
+              </lord-icon></span>
+            Detected Ingredients
+          </h3>
+          <div id="ingredientsList" class="space-y-2">
+            <p class="text-gray-500 dark:text-gray-400 text-sm">Upload an image to detect ingredients</p>
+          </div>
+
+          <div class="mt-4 flex gap-2">
+            <input id="manualIngredient" type="text" placeholder="Add ingredient manually"
+              class="flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 dark:bg-gray-700 dark:text-white">
+            <button id="addIngredient"
+              class="px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors">Add</button>
+          </div>
+        </div>
+
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 animate-fade-in">
+          <h3 class="text-xl flex gap-3 items-center font-bold text-gray-900 dark:text-white mb-4"><lord-icon
+              src="https://cdn.lordicon.com/hrtsficn.json" trigger="in" delay="150" state="in-reveal"
+              colors="primary:#e86830" style="width:25px;height:25px">
+            </lord-icon> Smart Filters</h3>
+
+          <div class="space-y-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Cooking Time</label>
+              <select
+                class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 dark:bg-gray-700 dark:text-white">
+                <option>Any time</option>
+                <option>Under 15 mins</option>
+                <option>15-30 mins</option>
+                <option>30+ mins</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Difficulty</label>
+              <div class="flex gap-2">
+                <button
+                  class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm hover:bg-green-200 transition-colors">Easy</button>
+                <button
+                  class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm hover:bg-yellow-200 transition-colors">Medium</button>
+                <button
+                  class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm hover:bg-red-200 transition-colors">Hard</button>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Cuisine Type</label>
+              <div class="flex flex-wrap gap-2">
+                <button
+                  class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm hover:bg-blue-200 transition-colors">Indian</button>
+                <button
+                  class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm hover:bg-purple-200 transition-colors">Italian</button>
+                <button
+                  class="px-3 py-1 bg-pink-100 text-pink-800 rounded-full text-sm hover:bg-pink-200 transition-colors">Chinese</button>
+              </div>
+            </div>
+
+            <div class="flex items-center space-x-4">
+              <label class="flex items-center">
+                <input type="checkbox" class="rounded text-orange-500 focus:ring-orange-500">
+                <span class="ml-2 text-sm text-gray-700 dark:text-gray-300">🥬 Vegetarian</span>
+              </label>
+              <label class="flex items-center">
+                <input type="checkbox" class="rounded text-orange-500 focus:ring-orange-500">
+                <span class="ml-2 text-sm text-gray-700 dark:text-gray-300">🌶️ Spicy</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-2">
+
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 animate-fade-in">
+          <div class="flex justify-between items-center mb-6">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white flex items-center">
+              <span
+                class="w-8 h-8 bg-gree-500 rounded-full flex items-center justify-center mr-3 text-white text-sm"><lord-icon
+                  src="https://cdn.lordicon.com/ysrqssiv.json" trigger="in" delay="150" state="in-reveal"
+                  style="width:25px;height:25px">
+                </lord-icon></span>
+              Recipe Suggestions
+            </h2>
+            <span class="text-sm text-gray-500 dark:text-gray-400">Found 6 recipes</span>
+          </div>
+
+          <div id="recipeGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+            <div class="recipe-card rounded-xl overflow-hidden transition-all duration-300 cursor-pointer group"
+              onclick="openRecipe('paneer-tikka')">
+              <div class="relative">
+                <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=400&h=250&fit=crop"
+                  alt="Paneer Tikka"
+                  class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+                <button
+                  class="absolute top-3 right-3 p-2 bg-white/90 rounded-full hover:bg-white transition-colors heart-btn"
+                  onclick="event.stopPropagation(); toggleHeart(this)">
+                  <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                    </path>
+                  </svg>
+                </button>
+                <div class="absolute bottom-3 left-3">
+                  <div class="bg-green-500 text-white px-2 py-1 rounded-full text-xs font-semibold">🥬 Vegetarian</div>
+                </div>
+              </div>
+              <div class="p-4">
+                <h3 class="font-bold text-gray-900 dark:text-white text-lg mb-2">Paneer Tikka</h3>
+                <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-3">
+                  <span class="mr-4">⏱️ 25 mins</span>
+                  <span class="mr-4">👨‍🍳 Easy</span>
+                  <span>🌶️ Medium</span>
+                </div>
+                <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">Marinated paneer grilled to perfection with
+                  aromatic spices and vegetables.</p>
+                <div class="flex flex-wrap gap-1 mb-3">
+                  <span
+                    class="px-2 py-1 bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200 rounded-full text-xs">Paneer</span>
+                  <span
+                    class="px-2 py-1 bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200 rounded-full text-xs">Bell
+                    Pepper</span>
+                  <span
+                    class="px-2 py-1 bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200 rounded-full text-xs">Onion</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="recipe-card rounded-xl overflow-hidden transition-all duration-300 cursor-pointer group"
+              onclick="openRecipe('veggie-pasta')">
+              <div class="relative">
+                <img src="https://ichef.bbci.co.uk/food/ic/food_16x9_1600/recipes/quick_vegetable_pasta_93041_16x9.jpg"
+                  alt="Veggie Pasta"
+                  class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+                <button
+                  class="absolute top-3 right-3 p-2 bg-white/90 rounded-full hover:bg-white transition-colors heart-btn"
+                  onclick="event.stopPropagation(); toggleHeart(this)">
+                  <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                    </path>
+                  </svg>
+                </button>
+                <div class="absolute bottom-3 left-3 flex gap-2">
+                  <div class="bg-green-500 text-white px-2 py-1 rounded-full text-xs font-semibold">🥬 Vegetarian</div>
+                  <div class="bg-blue-500 text-white px-2 py-1 rounded-full text-xs font-semibold">⚡ Quick</div>
+                </div>
+              </div>
+              <div class="p-4">
+                <h3 class="font-bold text-gray-900 dark:text-white text-lg mb-2">Veggie Pasta</h3>
+                <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-3">
+                  <span class="mr-4">⏱️ 20 mins</span>
+                  <span class="mr-4">👨‍🍳 Easy</span>
+                  <span>🌶️ Mild</span>
+                </div>
+                <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">Fresh vegetables tossed with perfectly cooked
+                  pasta in a savory tomato sauce.</p>
+                <div class="flex flex-wrap gap-1 mb-3">
+                  <span
+                    class="px-2 py-1 bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200 rounded-full text-xs">Pasta</span>
+                  <span
+                    class="px-2 py-1 bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200 rounded-full text-xs">Tomato</span>
+                  <span
+                    class="px-2 py-1 bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200 rounded-full text-xs">Basil</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="recipe-card rounded-xl overflow-hidden transition-all duration-300 cursor-pointer group"
+              onclick="openRecipe('stir-fry')">
+              <div class="relative">
+                <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?w=400&h=250&fit=crop"
+                  alt="Vegetable Stir Fry"
+                  class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+                <button
+                  class="absolute top-3 right-3 p-2 bg-white/90 rounded-full hover:bg-white transition-colors heart-btn"
+                  onclick="event.stopPropagation(); toggleHeart(this)">
+                  <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                    </path>
+                  </svg>
+                </button>
+                <div class="absolute bottom-3 left-3 flex gap-2">
+                  <div class="bg-green-500 text-white px-2 py-1 rounded-full text-xs font-semibold">🥬 Vegetarian</div>
+                  <div class="bg-blue-500 text-white px-2 py-1 rounded-full text-xs font-semibold">⚡ Quick</div>
+                  <div class="bg-red-500 text-white px-2 py-1 rounded-full text-xs font-semibold">🌶️ Spicy</div>
+                </div>
+              </div>
+              <div class="p-4">
+                <h3 class="font-bold text-gray-900 dark:text-white text-lg mb-2">Vegetable Stir Fry</h3>
+                <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-3">
+                  <span class="mr-4">⏱️ 15 mins</span>
+                  <span class="mr-4">👨‍🍳 Easy</span>
+                  <span>🌶️ Spicy</span>
+                </div>
+                <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">Quick and healthy stir-fried vegetables with
+                  aromatic Asian flavors.</p>
+                <div class="flex flex-wrap gap-1 mb-3">
+                  <span
+                    class="px-2 py-1 bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200 rounded-full text-xs">Mixed
+                    Vegetables</span>
+                  <span
+                    class="px-2 py-1 bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200 rounded-full text-xs">Soy
+                    Sauce</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="recipe-card rounded-xl overflow-hidden transition-all duration-300 cursor-pointer group"
+              onclick="openRecipe('butter-chicken')">
+              <div class="relative">
+                <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400&h=250&fit=crop"
+                  alt="Butter Chicken"
+                  class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+                <button
+                  class="absolute top-3 right-3 p-2 bg-white/90 rounded-full hover:bg-white transition-colors heart-btn"
+                  onclick="event.stopPropagation(); toggleHeart(this)">
+                  <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                    </path>
+                  </svg>
+                </button>
+                <div class="absolute bottom-3 left-3">
+                  <div class="bg-orange-500 text-white px-2 py-1 rounded-full text-xs font-semibold">🍖 Non-Veg</div>
+                </div>
+              </div>
+              <div class="p-4">
+                <h3 class="font-bold text-gray-900 dark:text-white text-lg mb-2">Butter Chicken</h3>
+                <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-3">
+                  <span class="mr-4">⏱️ 45 mins</span>
+                  <span class="mr-4">👨‍🍳 Medium</span>
+                  <span>🌶️ Medium</span>
+                </div>
+                <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">Creamy and rich chicken curry with aromatic
+                  spices and tomato base.</p>
+                <div class="flex flex-wrap gap-1 mb-3">
+                  <span
+                    class="px-2 py-1 bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200 rounded-full text-xs">Chicken</span>
+                  <span
+                    class="px-2 py-1 bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200 rounded-full text-xs">Tomato</span>
+                  <span
+                    class="px-2 py-1 bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200 rounded-full text-xs">Cream</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="recipe-card rounded-xl overflow-hidden transition-all duration-300 cursor-pointer group"
+              onclick="openRecipe('biryani')">
+              <div class="relative">
+                <img src="https://recipe30.com/wp-content/uploads/2023/03/chicken-Biryani.jpg" alt="Biryani"
+                  class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+                <button
+                  class="absolute top-3 right-3 p-2 bg-white/90 rounded-full hover:bg-white transition-colors heart-btn"
+                  onclick="event.stopPropagation(); toggleHeart(this)">
+                  <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                    </path>
+                  </svg>
+                </button>
+                <div class="absolute bottom-3 left-3 flex gap-2">
+                  <div class="bg-orange-500 text-white px-2 py-1 rounded-full text-xs font-semibold">🍖 Non-Veg</div>
+                  <div class="bg-purple-500 text-white px-2 py-1 rounded-full text-xs font-semibold">🌶️ Spicy</div>
+                </div>
+              </div>
+              <div class="p-4">
+                <h3 class="font-bold text-gray-900 dark:text-white text-lg mb-2">Chicken Biryani</h3>
+                <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-3">
+                  <span class="mr-4">⏱️ 60 mins</span>
+                  <span class="mr-4">👨‍🍳 Hard</span>
+                  <span>🌶️ Spicy</span>
+                </div>
+                <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">Fragrant basmati rice layered with spiced
+                  chicken and aromatic herbs.</p>
+                <div class="flex flex-wrap gap-1 mb-3">
+                  <span
+                    class="px-2 py-1 bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200 rounded-full text-xs">Basmati
+                    Rice</span>
+                  <span
+                    class="px-2 py-1 bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200 rounded-full text-xs">Chicken</span>
+                  <span
+                    class="px-2 py-1 bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200 rounded-full text-xs">Saffron</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="recipe-card rounded-xl overflow-hidden transition-all duration-300 cursor-pointer group"
+              onclick="openRecipe('gulab-jamun')">
+              <div class="relative">
+                <img
+                  src="https://www.cadburydessertscorner.com/hs-fs/hubfs/dc-website-2022/articles/soft-gulab-jamun-recipe-for-raksha-bandhan-from-dough-to-syrup-all-you-need-to-know/soft-gulab-jamun-recipe-for-raksha-bandhan-from-dough-to-syrup-all-you-need-to-know.webp?width=1920&height=464&name=soft-gulab-jamun-recipe-for-raksha-bandhan-from-dough-to-syrup-all-you-need-to-know.webp"
+                  alt="Gulab Jamun"
+                  class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+                <button
+                  class="absolute top-3 right-3 p-2 bg-white/90 rounded-full hover:bg-white transition-colors heart-btn"
+                  onclick="event.stopPropagation(); toggleHeart(this)">
+                  <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                    </path>
+                  </svg>
+                </button>
+                <div class="absolute bottom-3 left-3 flex gap-2">
+                  <div class="bg-green-500 text-white px-2 py-1 rounded-full text-xs font-semibold">🥬 Vegetarian</div>
+                  <div class="bg-pink-500 text-white px-2 py-1 rounded-full text-xs font-semibold">🍰 Dessert</div>
+                </div>
+              </div>
+              <div class="p-4">
+                <h3 class="font-bold text-gray-900 dark:text-white text-lg mb-2">Gulab Jamun</h3>
+                <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-3">
+                  <span class="mr-4">⏱️ 40 mins</span>
+                  <span class="mr-4">👨‍🍳 Medium</span>
+                  <span>🍯 Sweet</span>
+                </div>
+                <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">Soft, spongy milk dumplings soaked in fragrant
+                  sugar syrup.</p>
+                <div class="flex flex-wrap gap-1 mb-3">
+                  <span
+                    class="px-2 py-1 bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200 rounded-full text-xs">Milk
+                    Powder</span>
+                  <span
+                    class="px-2 py-1 bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200 rounded-full text-xs">Sugar</span>
+                  <span
+                    class="px-2 py-1 bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200 rounded-full text-xs">Cardamom</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center mt-8">
+            <button
+              class="px-6 py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-lg font-semibold hover:from-orange-600 hover:to-red-600 transform hover:scale-105 transition-all shadow-lg">
+              Load More Recipes
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 mb-8 animate-fade-in">
+      <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center">
+        <span
+          class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center mr-2 text-white text-xs"><lord-icon
+            src="https://cdn.lordicon.com/abhwievu.json" trigger="in" delay="150" state="in-reveal"
+            colors="primary:#e86830,secondary:#ffc738,tertiary:#16c72e,quaternary:#ebe6ef"
+            style="width:25px;height:25px">
+          </lord-icon></span>
+        Smart Substitutes
+      </h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="bg-yellow-50 dark:bg-yellow-900/30 p-4 rounded-lg border border-yellow-200 dark:border-yellow-700">
+          <div class="flex items-center mb-2">
+            <span class="text-red-500 font-semibold text-sm">Missing: Onion</span>
+          </div>
+          <p class="text-sm text-gray-600 dark:text-gray-300">→ Try: Spring onion, shallots, or garlic</p>
+        </div>
+        <div class="bg-blue-50 dark:bg-blue-900/30 p-4 rounded-lg border border-blue-200 dark:border-blue-700">
+          <div class="flex items-center mb-2">
+            <span class="text-red-500 font-semibold text-sm">Missing: Cream</span>
+          </div>
+          <p class="text-sm text-gray-600 dark:text-gray-300">→ Try: Coconut milk, cashew paste, or yogurt</p>
+        </div>
+        <div class="bg-green-50 dark:bg-green-900/30 p-4 rounded-lg border border-green-200 dark:border-green-700">
+          <div class="flex items-center mb-2">
+            <span class="text-red-500 font-semibold text-sm">Missing: Basil</span>
+          </div>
+          <p class="text-sm text-gray-600 dark:text-gray-300">→ Try: Oregano, parsley, or mint leaves</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="emptyState" class="hidden text-center py-16 animate-fade-in">
+      <lord-icon src="https://cdn.lordicon.com/msoeawqm.json" trigger="in" delay="150" state="in-reveal"
+        colors="primary:#f97316" style="width:120px;height:120px" class="mx-auto mb-6"></lord-icon>
+      <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Oops! No recipes found</h3>
+      <p class="text-gray-600 dark:text-gray-400 mb-6 max-w-md mx-auto">
+        Try adding more ingredients or adjusting your filters to discover delicious recipes.
+      </p>
+      <button
+        class="px-6 py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-lg font-semibold hover:from-orange-600 hover:to-red-600 transform hover:scale-105 transition-all shadow-lg">
+        Reset Filters
+      </button>
+    </div>
   </main>
+
+  <div id="recipeModal"
+    class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
+    <div
+      class="bg-white dark:bg-gray-800 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto transform scale-95 transition-all duration-300"
+      id="modalContent">
+      <div class="p-6">
+
+        <div class="flex justify-between items-center mb-6">
+          <h2 id="modalTitle" class="text-3xl font-bold text-gray-900 dark:text-white">Recipe Name</h2>
+          <button onclick="closeRecipe()"
+            class="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors">
+            <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+          <div>
+            <img id="modalImage" src="" alt="" class="w-full h-64 object-cover rounded-xl shadow-lg">
+            <div class="mt-4 flex justify-between items-center">
+              <div class="flex gap-4 text-sm text-gray-600 dark:text-gray-400">
+                <span id="modalTime">⏱️ 25 mins</span>
+                <span id="modalDifficulty">👨‍🍳 Easy</span>
+                <span id="modalSpice">🌶️ Medium</span>
+              </div>
+              <button class="px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors">
+                ❤️ Save Recipe
+              </button>
+            </div>
+          </div>
+
+          <div class="bg-gray-50 dark:bg-gray-900/50 rounded-xl p-6">
+            <h3 class="font-bold text-gray-900 dark:text-white mb-4 flex items-center">
+              <svg class="w-5 h-5 mr-2 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"></path>
+              </svg>
+              Cooking Progress
+            </h3>
+
+
+            <div class="flex items-center justify-center mb-4">
+              <div class="relative w-24 h-24">
+                <svg class="w-24 h-24 progress-ring" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10" stroke="#e5e7eb" stroke-width="2" fill="transparent"></circle>
+                  <circle id="progressCircle" cx="12" cy="12" r="10" stroke="#f97316" stroke-width="2"
+                    fill="transparent" stroke-dasharray="62.8" stroke-dashoffset="62.8"
+                    class="transition-all duration-300"></circle>
+                </svg>
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <span id="progressPercent" class="text-lg font-bold text-gray-900 dark:text-white">0%</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-2">
+              <div class="flex justify-between text-sm">
+                <span class="text-gray-600 dark:text-gray-400">Steps completed:</span>
+                <span id="stepsCompleted" class="font-semibold text-gray-900 dark:text-white">0 / 4</span>
+              </div>
+              <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                <div id="progressBar"
+                  class="bg-gradient-to-r from-orange-500 to-red-500 h-2 rounded-full transition-all duration-300"
+                  style="width: 0%"></div>
+              </div>
+            </div>
+
+            <button id="startCooking"
+              class="w-full mt-4 bg-gradient-to-r from-green-500 to-green-600 text-white py-2 rounded-lg font-semibold hover:from-green-600 hover:to-green-700 transition-all">
+              🚀 Start Cooking!
+            </button>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 dark:bg-gray-900/50 rounded-xl p-6">
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-6">Step-by-Step Instructions</h3>
+          <div id="recipeSteps" class="space-y-4">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="loadingOverlay"
+    class="fixed inset-0 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-50 flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300">
+    <div class="text-center animate-pulse-soft">
+      <lord-icon src="https://cdn.lordicon.com/xjovhxra.json" trigger="in" delay="150" state="in-reveal"
+        colors="primary:#f97316" style="width:80px;height:80px" class="mx-auto mb-4"></lord-icon>
+      <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Analyzing ingredients...</h3>
+      <p class="text-gray-600 dark:text-gray-400">Our AI is finding the perfect recipes for you</p>
+    </div>
+  </div>
 </body>
+
 </html>

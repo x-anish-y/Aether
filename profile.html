@@ -1,72 +1,412 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Food Lover Profile</title>
-    <script src="https://unpkg.com/tailwindcss-jit-cdn"></script>
-</head>
-<body class="bg-gray-100 font-sans antialiased">
+    <title>Food Lover Profile - BAHANA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.lordicon.com/bushiqea.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-<!-- Profile Section -->
-<section class="flex flex-col justify-center min-h-screen p-4">
-    <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg border border-gray-200 overflow-hidden">
-        <div class="flex flex-col md:flex-row">
-            <!-- Left Sidebar -->
-            <div class="w-full md:w-1/3 bg-gray-50 p-6 flex flex-col items-center">
-                <img class="rounded-full w-32 h-32 mb-4" src="https://preview.cruip.com/mosaic/images/user-64-01.jpg" alt="User Profile">
-                <h2 class="text-xl font-semibold mb-1">Dominik McNeail</h2>
-                <p class="text-gray-500 mb-4">🍕 Food Lover | 🍳 Home Chef | 🌱 Healthy Eating</p>
-                <div class="flex space-x-3">
-                    <a href="#edit-profile" class="bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded shadow text-sm">Edit Profile</a>
-                    <a href="#send-email" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded shadow text-sm">Send Email</a>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+
+
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #aa66ea 0%, #1e003f 100%);
+            transition: all 0.3s ease;
+        }
+
+        .card-shadow {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+
+        .copy-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background: #333;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 101;
+        }
+
+        .toast.show {
+            opacity: 1;
+        }
+
+        .bg-custom {
+            background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20231227/pngtree-exquisite-japanese-cuisine-captivating-hand-drawn-illustration-on-textured-wood-image_13883237.png');
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-custom bg-cover bg-center bg-fixed w-full">
+
+    <header
+        class="rounded-br-[35px] rounded-bl-[35px] sticky top-0 z-50 backdrop-blur-md bg-white/20 border-b border-white/30 text-white body-font">
+        <div class=" mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+            <a href="home.html"
+                class="hover:scale-110 transition-all flex title-font font-bold items-center text-white mb-4 md:mb-0">
+                <img src="Logo.jpg" width="40px" class="border rounded-full" alt="">
+                <span class="ml-3 text-xl  from-orange-500 to-red-500 font-bold">BAHANA</span>
+            </a>
+            <nav
+                class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400 flex text-gray-100 flex-wrap items-center text-base justify-center">
+                <a href="home.html"
+                    class="mr-5 transition-all hover:font-bold hover:scale-105 hover:text-white ">HOME</a>
+                <a href="Scanner.html"
+                    class="mr-5 transition-all hover:font-bold hover:scale-105 hover:text-white ">YOUR
+                    RECIPE</a>
+                <a href="AboutUs.html"
+                    class="mr-5  transition-all hover:font-bold hover:scale-105 hover:text-white ">ABOUT US</a>
+            </nav>
+            <a class=" w-3 h-3" href="profile.html"><lord-icon src="https://cdn.lordicon.com/hhljfoaj.json"
+                    trigger="hover" colors="primary:#000000,secondary:#16c72e,tertiary:#e8e230"
+                    style="width:50px;height:50px">
+                </lord-icon></a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8 max-w-6xl">
+
+        <div class="bg-white rounded-2xl card-shadow overflow-hidden mb-8">
+            <div class="gradient-bg h-32 relative">
+                <div class="absolute -bottom-16 left-8">
+                    <img class="w-32 h-32 rounded-full border-4 border-white shadow-lg"
+                        src="https://preview.cruip.com/mosaic/images/user-64-01.jpg" alt="User Profile">
                 </div>
             </div>
 
-            <!-- Right Content -->
-            <div class="w-full md:w-2/3 p-6">
-                <!-- Food History -->
-                <div class="mb-6">
-                    <h3 class="text-lg font-semibold mb-3 border-b border-gray-200 pb-2">🍽 Food History</h3>
-                    <ul class="space-y-2 text-gray-600">
-                        <li>🍕 Tried Italian Pizza - 12 Sep 2025</li>
-                        <li>🍣 Sushi Night - 10 Sep 2025</li>
-                        <li>🥗 Healthy Salad Recipes - 08 Sep 2025</li>
-                    </ul>
+            <div class="pt-20 px-8 pb-6">
+                <div class="flex flex-col md:flex-row md:items-center justify-between">
+                    <div>
+                        <h1 class="text-2xl font-bold text-gray-800">AlgoRYTHMs</h1>
+                        <p class="text-gray-600 mt-1">🍕 Food Lover | 🍳 Home Chef | 🌱 Healthy Eating</p>
+                        <div class="flex items-center mt-3 space-x-4">
+                            <span class="text-sm text-gray-500"><i class="fas fa-map-marker-alt mr-1"></i> San
+                                Francisco, CA</span>
+                            <span class="text-sm text-gray-500"><i class="fas fa-calendar-alt mr-1"></i> Joined Sep
+                                2023</span>
+                        </div>
+                    </div>
+
+                    <div class="flex space-x-3 mt-4 md:mt-0">
+                        <button
+                            class="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2 rounded-lg transition-colors flex items-center">
+                            <i class="fas fa-edit mr-2"></i> Edit Profile
+                        </button>
+                        <button
+                            class="bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-lg transition-colors flex items-center">
+                            <i class="fas fa-envelope mr-2"></i> Send Email
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+            <div class="bg-white rounded-xl p-5 card-shadow text-center hover-scale">
+                <div class="text-3xl font-bold text-indigo-600">42</div>
+                <div class="text-gray-600 mt-1">Recipes Tried</div>
+            </div>
+            <div class="bg-white rounded-xl p-5 card-shadow text-center hover-scale">
+                <div class="text-3xl font-bold text-green-600">28</div>
+                <div class="text-gray-600 mt-1">Recipes Created</div>
+            </div>
+            <div class="bg-white rounded-xl p-5 card-shadow text-center hover-scale">
+                <div class="text-3xl font-bold text-purple-600">156</div>
+                <div class="text-gray-600 mt-1">Followers</div>
+            </div>
+            <div class="bg-white rounded-xl p-5 card-shadow text-center hover-scale">
+                <div class="text-3xl font-bold text-yellow-500">89</div>
+                <div class="text-gray-600 mt-1">Following</div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+            <div class="lg:col-span-2 space-y-8">
+
+                <div class="bg-white rounded-2xl card-shadow p-6">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-xl font-bold text-gray-800 flex items-center">
+                            <i class="fas fa-utensils text-indigo-600 mr-2"></i> Food History
+                        </h2>
+                        <a href="#" class="text-indigo-600 hover:text-indigo-800 text-sm font-medium">View All</a>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start p-4 hover:bg-gray-50 rounded-lg transition-colors">
+                            <div class="bg-indigo-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-pizza-slice text-indigo-600 text-xl"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="font-medium text-gray-800">Italian Pizza Experience</h3>
+                                <p class="text-gray-600 text-sm mt-1">Tried authentic Margherita pizza at a local
+                                    Italian restaurant</p>
+                                <div class="flex items-center text-gray-500 text-xs mt-2">
+                                    <i class="far fa-calendar mr-1"></i> 12 Sep 2025
+                                    <span class="mx-2">•</span>
+                                    <div class="flex items-center">
+                                        <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                        <span>4.8</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start p-4 hover:bg-gray-50 rounded-lg transition-colors">
+                            <div class="bg-green-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-fish text-green-600 text-xl"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="font-medium text-gray-800">Sushi Night</h3>
+                                <p class="text-gray-600 text-sm mt-1">Explored various sushi rolls and sashimi at
+                                    Japanese restaurant</p>
+                                <div class="flex items-center text-gray-500 text-xs mt-2">
+                                    <i class="far fa-calendar mr-1"></i> 10 Sep 2025
+                                    <span class="mx-2">•</span>
+                                    <div class="flex items-center">
+                                        <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                        <span>4.5</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start p-4 hover:bg-gray-50 rounded-lg transition-colors">
+                            <div class="bg-yellow-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-seedling text-yellow-600 text-xl"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="font-medium text-gray-800">Healthy Salad Recipes</h3>
+                                <p class="text-gray-600 text-sm mt-1">Discovered new nutritious salad combinations for
+                                    meal prep</p>
+                                <div class="flex items-center text-gray-500 text-xs mt-2">
+                                    <i class="far fa-calendar mr-1"></i> 8 Sep 2025
+                                    <span class="mx-2">•</span>
+                                    <div class="flex items-center">
+                                        <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                        <span>4.7</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Recipe History -->
-                <div class="mb-6">
-                    <h3 class="text-lg font-semibold mb-3 border-b border-gray-200 pb-2">📖 Recipe History</h3>
-                    <ul class="space-y-2 text-gray-600">
-                        <li>Spaghetti Carbonara - Cooked on 12 Sep 2025</li>
-                        <li>Homemade Veggie Pizza - Cooked on 09 Sep 2025</li>
-                        <li>Avocado Toast - Cooked on 05 Sep 2025</li>
-                    </ul>
+                <div class="bg-white rounded-2xl card-shadow p-6">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-xl font-bold text-gray-800 flex items-center">
+                            <i class="fas fa-book text-green-600 mr-2"></i> Recipe History
+                        </h2>
+                        <a href="#" class="text-green-600 hover:text-green-800 text-sm font-medium">View All</a>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="border border-gray-200 rounded-xl overflow-hidden hover-scale">
+                            <img src="https://www.nestlegoodnes.com/ph/sites/default/files/styles/1_1_768px_width/public/srh_recipes/ec9fce823d23bbb054d52aea1981fc0c.jpg.webp?itok=00faecKA"
+                                alt="Spaghetti Carbonara" class="w-full h-40 object-cover">
+                            <div class="p-4">
+                                <h3 class="font-medium text-gray-800">Spaghetti Carbonara</h3>
+                                <div class="flex items-center text-gray-500 text-xs mt-2">
+                                    <i class="far fa-calendar mr-1"></i> Cooked on 12 Sep 2025
+                                </div>
+                                <div class="flex items-center mt-2">
+                                    <div class="flex items-center text-yellow-400 text-xs">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <span class="text-gray-500 text-xs ml-2">4.5</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border border-gray-200 rounded-xl overflow-hidden hover-scale">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGsO8_BXeu1PTx2mLrb7OPazuxz4hJp273FQ&s"
+                                alt="Homemade Veggie Pizza" class="w-full h-40 object-cover">
+                            <div class="p-4">
+                                <h3 class="font-medium text-gray-800">Homemade Veggie Pizza</h3>
+                                <div class="flex items-center text-gray-500 text-xs mt-2">
+                                    <i class="far fa-calendar mr-1"></i> Cooked on 9 Sep 2025
+                                </div>
+                                <div class="flex items-center mt-2">
+                                    <div class="flex items-center text-yellow-400 text-xs">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <span class="text-gray-500 text-xs ml-2">4.0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="space-y-8">
+
+                <div class="bg-white rounded-2xl card-shadow p-6">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-xl font-bold text-gray-800 flex items-center">
+                            <i class="fas fa-heart text-red-500 mr-2"></i> Favorite Recipes
+                        </h2>
+                        <a href="#" class="text-red-500 hover:text-red-700 text-sm font-medium">View All</a>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="flex items-center p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <img src="https://media.istockphoto.com/id/1442417585/photo/person-getting-a-piece-of-cheesy-pepperoni-pizza.jpg?s=612x612&w=0&k=20&c=k60TjxKIOIxJpd4F4yLMVjsniB4W1BpEV4Mi_nb4uJU="
+                                alt="Pizza" class="w-16 h-16 rounded-lg object-cover">
+                            <div class="ml-3">
+                                <h3 class="font-medium text-gray-800">Pizza</h3>
+                                <div class="flex items-center text-yellow-400 text-xs mt-1">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSCfePX6AdI0cEWgyHGMQgzu9m6zUBdx_-Sg&s"
+                                alt="Salad" class="w-16 h-16 rounded-lg object-cover">
+                            <div class="ml-3">
+                                <h3 class="font-medium text-gray-800">Salad</h3>
+                                <div class="flex items-center text-yellow-400 text-xs mt-1">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <img src="https://signatureconcoctions.com/wp-content/uploads/2024/12/Murgh-Masala-3-scaled.jpg"
+                                alt="Curry" class="w-16 h-16 rounded-lg object-cover">
+                            <div class="ml-3">
+                                <h3 class="font-medium text-gray-800">Curry</h3>
+                                <div class="flex items-center text-yellow-400 text-xs mt-1">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Favorite Recipes -->
-                <div>
-                    <h3 class="text-lg font-semibold mb-3 border-b border-gray-200 pb-2">❤️ Favorite Recipes</h3>
-                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                        <div class="bg-gray-50 p-3 rounded shadow text-center">
-                            <img class="w-full h-20 object-cover rounded mb-2" src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGl6emF8ZW58MHx8MHx8&ixlib=rb-4.0.3&q=80&w=200" alt="Pizza">
-                            <span class="text-sm font-medium">Pizza</span>
+
+                <div class="bg-white rounded-2xl card-shadow p-6">
+                    <h2 class="text-xl font-bold text-gray-800 flex items-center mb-6">
+                        <i class="fas fa-trophy text-yellow-500 mr-2"></i> Achievements
+                    </h2>
+
+                    <div class="grid grid-cols-3 gap-4">
+                        <div class="text-center">
+                            <div
+                                class="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-2">
+                                <i class="fas fa-medal text-yellow-500 text-2xl"></i>
+                            </div>
+                            <span class="text-xs text-gray-600">Food Explorer</span>
                         </div>
-                        <div class="bg-gray-50 p-3 rounded shadow text-center">
-                            <img class="w-full h-20 object-cover rounded mb-2" src="https://images.unsplash.com/photo-1617196033863-0c71276a1f1f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c2FsdHxlbnwwfHwwfHw%3D&ixlib=rb-4.0.3&q=80&w=200" alt="Salad">
-                            <span class="text-sm font-medium">Salad</span>
+
+                        <div class="text-center">
+                            <div
+                                class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-2">
+                                <i class="fas fa-fire text-purple-500 text-2xl"></i>
+                            </div>
+                            <span class="text-xs text-gray-600">Recipe Master</span>
                         </div>
-                        <div class="bg-gray-50 p-3 rounded shadow text-center">
-                            <img class="w-full h-20 object-cover rounded mb-2" src="https://images.unsplash.com/photo-1617196033863-0c71276a1f1f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8curryfDB8fDB8fA%3D%3D&ixlib=rb-4.0.3&q=80&w=200" alt="Curry">
-                            <span class="text-sm font-medium">Curry</span>
+
+                        <div class="text-center">
+                            <div
+                                class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-2">
+                                <i class="fas fa-leaf text-green-500 text-2xl"></i>
+                            </div>
+                            <span class="text-xs text-gray-600">Healthy Eater</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl card-shadow p-6">
+                    <h2 class="text-xl font-bold text-gray-800 flex items-center mb-6">
+                        <i class="fas fa-sliders-h text-blue-500 mr-2"></i> Food Preferences
+                    </h2>
+
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-600">Cuisine Type</span>
+                            <span class="font-medium">Italian, Japanese, Mexican</span>
+                        </div>
+
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-600">Dietary Restrictions</span>
+                            <span class="font-medium">Vegetarian Options</span>
+                        </div>
+
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-600">Spice Level</span>
+                            <div class="flex">
+                                <i class="fas fa-pepper-hot text-red-500"></i>
+                                <i class="fas fa-pepper-hot text-red-500"></i>
+                                <i class="fas fa-pepper-hot text-gray-300"></i>
+                                <i class="fas fa-pepper-hot text-gray-300"></i>
+                                <i class="fas fa-pepper-hot text-gray-300"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </main>
+
+    <script src="profile.js"></script>
+
 
 </body>
+
 </html>
