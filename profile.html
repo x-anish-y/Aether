@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food Lover Profile - BAHANA</title>
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.lordicon.com/bushiqea.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
@@ -65,7 +65,7 @@
         }
 
         .bg-custom {
-            background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20231227/pngtree-exquisite-japanese-cuisine-captivating-hand-drawn-illustration-on-textured-wood-image_13883237.png');
+            background-image: url('bg4.jpg');
         }
     </style>
 </head>
@@ -73,61 +73,86 @@
 <body class="min-h-screen bg-custom bg-cover bg-center bg-fixed w-full">
 
     <header
-        class="rounded-br-[35px] rounded-bl-[35px] sticky top-0 z-50 backdrop-blur-md bg-white/20 border-b border-white/30 text-white body-font">
-        <div class=" mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-            <a href="home.html"
-                class="hover:scale-110 transition-all flex title-font font-bold items-center text-white mb-4 md:mb-0">
-                <img src="Logo.jpg" width="40px" class="border rounded-full" alt="">
-                <span class="ml-3 text-xl  from-orange-500 to-red-500 font-bold">BAHANA</span>
-            </a>
-            <nav
-                class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400 flex text-gray-100 flex-wrap items-center text-base justify-center">
-                <a href="home.html"
-                    class="mr-5 transition-all hover:font-bold hover:scale-105 hover:text-white ">HOME</a>
-                <a href="Scanner.html"
-                    class="mr-5 transition-all hover:font-bold hover:scale-105 hover:text-white ">YOUR
-                    RECIPE</a>
-                <a href="AboutUs.html"
-                    class="mr-5  transition-all hover:font-bold hover:scale-105 hover:text-white ">ABOUT US</a>
-            </nav>
-            <a class=" w-3 h-3" href="profile.html"><lord-icon src="https://cdn.lordicon.com/hhljfoaj.json"
-                    trigger="hover" colors="primary:#000000,secondary:#16c72e,tertiary:#e8e230"
-                    style="width:50px;height:50px">
-                </lord-icon></a>
-        </div>
-    </header>
+    class="rounded-br-[35px] rounded-bl-[35px] sticky top-0 z-50 backdrop-blur-md bg-white/20 border-b border-white/30 text-white body-font">
+    <div class="mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+      <a href="home.html" class="hover:scale-110 transition-all flex title-font font-bold items-center mb-4 md:mb-0">
+        <img src="Logo.jpg" width="40px" class="rounded-full" alt="">
+        <span class="ml-3 text-xl font-bold bg-gradient-to-r from-[#c17eff] to-[#5600b3] bg-clip-text text-transparent">
+          BAHANA
+        </span>
+      </a>
+      <nav
+        class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400 flex flex-wrap items-center text-base justify-center">
+        <a href="home.html"
+          class="mr-5 transition-all hover:font-bold hover:scale-105 bg-gradient-to-r from-[#c17eff] to-[#5600b3] bg-clip-text text-transparent">
+          HOME
+        </a>
+        <a href="Scanner.html"
+          class="mr-5 transition-all hover:font-bold hover:scale-105 bg-gradient-to-r from-[#c17eff] to-[#5600b3] bg-clip-text text-transparent">
+          YOUR RECIPE
+        </a>
+        <a href="AboutUs.html"
+          class="mr-5 transition-all hover:font-bold hover:scale-105 bg-gradient-to-r from-[#c17eff] to-[#5600b3] bg-clip-text text-transparent">
+          ABOUT US
+        </a>
+      </nav>
+      <a class="md:block hidden" href="#"><lord-icon src="https://cdn.lordicon.com/hhljfoaj.json"
+          trigger="hover" colors="primary:#ffffff,secondary:#aa66ea,tertiary:#1e003f" style="width:40px;height:40px">
+        </lord-icon></a>
+    </div>
+  </header>
 
     <main class="container mx-auto px-4 py-8 max-w-6xl">
 
-        <div class="bg-white rounded-2xl card-shadow overflow-hidden mb-8">
+        <div class=" rounded-2xl card-shadow overflow-hidden mb-8">
             <div class="gradient-bg h-32 relative">
-                <div class="absolute -bottom-16 left-8">
-                    <img class="w-32 h-32 rounded-full border-4 border-white shadow-lg"
+            </div>
+            
+            <div class="backdrop-blur-md bg-white/20 -z-50 pt-20 px-8 pb-6">
+                <div class="absolute -top-[55px] left-8">
+                    <img class="w-32 h-32 rounded-full z-50 border-4 border-white shadow-lg"
                         src="https://preview.cruip.com/mosaic/images/user-64-01.jpg" alt="User Profile">
                 </div>
-            </div>
-
-            <div class="pt-20 px-8 pb-6">
                 <div class="flex flex-col md:flex-row md:items-center justify-between">
                     <div>
                         <h1 class="text-2xl font-bold text-gray-800">AlgoRYTHMs</h1>
                         <p class="text-gray-600 mt-1">🍕 Food Lover | 🍳 Home Chef | 🌱 Healthy Eating</p>
                         <div class="flex items-center mt-3 space-x-4">
-                            <span class="text-sm text-gray-500"><i class="fas fa-map-marker-alt mr-1"></i> San
+                            <span class="text-sm flex items-center text-gray-500"><lord-icon
+    src="https://cdn.lordicon.com/onmwuuox.json"
+    trigger="in"
+    delay="150"
+    state="in-jump-dynamic"
+    colors="primary:#8930e8,secondary:#8930e8"
+    style="width:25px;height:25px">
+</lord-icon> San
                                 Francisco, CA</span>
-                            <span class="text-sm text-gray-500"><i class="fas fa-calendar-alt mr-1"></i> Joined Sep
+                            <span class="text-sm flex items-center text-gray-500"><lord-icon
+    src="https://cdn.lordicon.com/uphbloed.json"
+    trigger="in"
+    delay="150"
+    state="in-reveal"
+    colors="primary:#8930e8,secondary:#a866ee"
+    style="width:25px;height:25px">
+</lord-icon> Joined Sep
                                 2023</span>
                         </div>
                     </div>
 
                     <div class="flex space-x-3 mt-4 md:mt-0">
                         <button
-                            class="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2 rounded-lg transition-colors flex items-center">
-                            <i class="fas fa-edit mr-2"></i> Edit Profile
+                            class="bg-indigo-600 hover:bg-indigo-700 text-white gap-2 px-5 py-2 rounded-lg transition-colors flex items-center">
+                            <lord-icon src="https://cdn.lordicon.com/exymduqj.json" trigger="in" delay="150"
+                                state="in-dynamic" colors="primary:#ffffff,secondary:#8930e8"
+                                style="width:25px;height:25px">
+                            </lord-icon> Edit Profile
                         </button>
                         <button
-                            class="bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-lg transition-colors flex items-center">
-                            <i class="fas fa-envelope mr-2"></i> Send Email
+                            class="bg-green-600 hover:bg-green-700 text-white gap-2 px-5 py-2 rounded-lg transition-colors flex items-center">
+                            <lord-icon src="https://cdn.lordicon.com/vpbspaec.json" trigger="in" delay="150"
+                                state="in-assembly" colors="primary:#ffffff,secondary:#ffffff"
+                                style="width:25px;height:25px">
+                            </lord-icon> Send Email
                         </button>
                     </div>
                 </div>
@@ -136,20 +161,20 @@
 
 
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-            <div class="bg-white rounded-xl p-5 card-shadow text-center hover-scale">
+            <div class="backdrop-blur-md bg-white/20 rounded-xl p-5 card-shadow text-center hover-scale">
                 <div class="text-3xl font-bold text-indigo-600">42</div>
                 <div class="text-gray-600 mt-1">Recipes Tried</div>
             </div>
-            <div class="bg-white rounded-xl p-5 card-shadow text-center hover-scale">
-                <div class="text-3xl font-bold text-green-600">28</div>
+            <div class="backdrop-blur-md bg-white/20 rounded-xl p-5 card-shadow text-center hover-scale">
+                <div class="text-3xl font-bold text-green-700">28</div>
                 <div class="text-gray-600 mt-1">Recipes Created</div>
             </div>
-            <div class="bg-white rounded-xl p-5 card-shadow text-center hover-scale">
+            <div class="backdrop-blur-md bg-white/20 rounded-xl p-5 card-shadow text-center hover-scale">
                 <div class="text-3xl font-bold text-purple-600">156</div>
                 <div class="text-gray-600 mt-1">Followers</div>
             </div>
-            <div class="bg-white rounded-xl p-5 card-shadow text-center hover-scale">
-                <div class="text-3xl font-bold text-yellow-500">89</div>
+            <div class="backdrop-blur-md bg-white/20 rounded-xl p-5 card-shadow text-center hover-scale">
+                <div class="text-3xl font-bold text-yellow-700">89</div>
                 <div class="text-gray-600 mt-1">Following</div>
             </div>
         </div>
@@ -158,10 +183,17 @@
 
             <div class="lg:col-span-2 space-y-8">
 
-                <div class="bg-white rounded-2xl card-shadow p-6">
+                <div class="backdrop-blur-md bg-white/20 rounded-2xl card-shadow p-6">
                     <div class="flex justify-between items-center mb-6">
-                        <h2 class="text-xl font-bold text-gray-800 flex items-center">
-                            <i class="fas fa-utensils text-indigo-600 mr-2"></i> Food History
+                        <h2 class="text-xl gap-2 font-bold text-gray-800 flex items-center">
+                            <lord-icon
+    src="https://cdn.lordicon.com/flydzqpr.json"
+    trigger="in"
+    delay="150"
+    state="in-reveal"
+    colors="primary:#121331,secondary:#a866ee,tertiary:#4f1091"
+    style="width:40px;height:40px">
+</lord-icon> Food History
                         </h2>
                         <a href="#" class="text-indigo-600 hover:text-indigo-800 text-sm font-medium">View All</a>
                     </div>
@@ -169,7 +201,14 @@
                     <div class="space-y-4">
                         <div class="flex items-start p-4 hover:bg-gray-50 rounded-lg transition-colors">
                             <div class="bg-indigo-100 p-3 rounded-lg mr-4">
-                                <i class="fas fa-pizza-slice text-indigo-600 text-xl"></i>
+                                <lord-icon
+    src="https://cdn.lordicon.com/njrwmskv.json"
+    trigger="in"
+    delay="150"
+    state="in-calm"
+    colors="primary:#121331,secondary:#4f1091,tertiary:#a39cf4"
+    style="width:25px;height:25px">
+</lord-icon>
                             </div>
                             <div class="flex-1">
                                 <h3 class="font-medium text-gray-800">Italian Pizza Experience</h3>
@@ -179,7 +218,7 @@
                                     <i class="far fa-calendar mr-1"></i> 12 Sep 2025
                                     <span class="mx-2">•</span>
                                     <div class="flex items-center">
-                                        <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                        <i class="fas fa-star text-violet-400 mr-1"></i>
                                         <span>4.8</span>
                                     </div>
                                 </div>
@@ -188,7 +227,14 @@
 
                         <div class="flex items-start p-4 hover:bg-gray-50 rounded-lg transition-colors">
                             <div class="bg-green-100 p-3 rounded-lg mr-4">
-                                <i class="fas fa-fish text-green-600 text-xl"></i>
+                                <lord-icon
+    src="https://cdn.lordicon.com/powddgzq.json"
+    trigger="in"
+    delay="150"
+    state="in-reveal"
+    colors="primary:#16c72e,secondary:#ebe6ef,tertiary:#3a3347"
+    style="width:25px;height:25px">
+</lord-icon>
                             </div>
                             <div class="flex-1">
                                 <h3 class="font-medium text-gray-800">Sushi Night</h3>
@@ -198,7 +244,7 @@
                                     <i class="far fa-calendar mr-1"></i> 10 Sep 2025
                                     <span class="mx-2">•</span>
                                     <div class="flex items-center">
-                                        <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                        <i class="fas fa-star text-violet-400 mr-1"></i>
                                         <span>4.5</span>
                                     </div>
                                 </div>
@@ -207,7 +253,14 @@
 
                         <div class="flex items-start p-4 hover:bg-gray-50 rounded-lg transition-colors">
                             <div class="bg-yellow-100 p-3 rounded-lg mr-4">
-                                <i class="fas fa-seedling text-yellow-600 text-xl"></i>
+                                <lord-icon
+    src="https://cdn.lordicon.com/qnbrguva.json"
+    trigger="in"
+    delay="150"
+    state="in-reveal"
+    colors="primary:#e8b730"
+    style="width:25px;height:25px">
+</lord-icon>
                             </div>
                             <div class="flex-1">
                                 <h3 class="font-medium text-gray-800">Healthy Salad Recipes</h3>
@@ -217,7 +270,7 @@
                                     <i class="far fa-calendar mr-1"></i> 8 Sep 2025
                                     <span class="mx-2">•</span>
                                     <div class="flex items-center">
-                                        <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                        <i class="fas fa-star text-violet-400 mr-1"></i>
                                         <span>4.7</span>
                                     </div>
                                 </div>
@@ -226,10 +279,17 @@
                     </div>
                 </div>
 
-                <div class="bg-white rounded-2xl card-shadow p-6">
+                <div class="backdrop-blur-md bg-white/20 rounded-2xl card-shadow p-6">
                     <div class="flex justify-between items-center mb-6">
-                        <h2 class="text-xl font-bold text-gray-800 flex items-center">
-                            <i class="fas fa-book text-green-600 mr-2"></i> Recipe History
+                        <h2 class="text-xl gap-2 font-bold text-gray-800 flex items-center">
+                            <lord-icon
+    src="https://cdn.lordicon.com/yxsbonud.json"
+    trigger="in"
+    delay="150"
+    state="in-reveal"
+    colors="primary:#ebe6ef,secondary:#8930e8,tertiary:#f24c00,quaternary:#d4d1fa,quinary:#3a3347"
+    style="width:40px;height:40px">
+</lord-icon></i> Recipe History
                         </h2>
                         <a href="#" class="text-green-600 hover:text-green-800 text-sm font-medium">View All</a>
                     </div>
@@ -238,7 +298,7 @@
                         <div class="border border-gray-200 rounded-xl overflow-hidden hover-scale">
                             <img src="https://www.nestlegoodnes.com/ph/sites/default/files/styles/1_1_768px_width/public/srh_recipes/ec9fce823d23bbb054d52aea1981fc0c.jpg.webp?itok=00faecKA"
                                 alt="Spaghetti Carbonara" class="w-full h-40 object-cover">
-                            <div class="p-4">
+                            <div class="p-4 bg-white">
                                 <h3 class="font-medium text-gray-800">Spaghetti Carbonara</h3>
                                 <div class="flex items-center text-gray-500 text-xs mt-2">
                                     <i class="far fa-calendar mr-1"></i> Cooked on 12 Sep 2025
@@ -259,7 +319,7 @@
                         <div class="border border-gray-200 rounded-xl overflow-hidden hover-scale">
                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGsO8_BXeu1PTx2mLrb7OPazuxz4hJp273FQ&s"
                                 alt="Homemade Veggie Pizza" class="w-full h-40 object-cover">
-                            <div class="p-4">
+                            <div class="p-4 bg-white">
                                 <h3 class="font-medium text-gray-800">Homemade Veggie Pizza</h3>
                                 <div class="flex items-center text-gray-500 text-xs mt-2">
                                     <i class="far fa-calendar mr-1"></i> Cooked on 9 Sep 2025
@@ -283,10 +343,17 @@
 
             <div class="space-y-8">
 
-                <div class="bg-white rounded-2xl card-shadow p-6">
+                <div class="backdrop-blur-md bg-white/20 rounded-2xl card-shadow p-6">
                     <div class="flex justify-between items-center mb-6">
-                        <h2 class="text-xl font-bold text-gray-800 flex items-center">
-                            <i class="fas fa-heart text-red-500 mr-2"></i> Favorite Recipes
+                        <h2 class="text-xl font-bold gap-2 text-gray-800 flex items-center">
+                            <lord-icon
+    src="https://cdn.lordicon.com/ajzwsrcs.json"
+    trigger="in"
+    delay="150"
+    state="in-reveal"
+    colors="primary:#ee6d66,secondary:#ebe6ef,tertiary:#ffc738,quaternary:#d4d1fa,quinary:#fad3d1"
+    style="width:40px;height:40px">
+</lord-icon> Favorite Recipes
                         </h2>
                         <a href="#" class="text-red-500 hover:text-red-700 text-sm font-medium">View All</a>
                     </div>
@@ -297,7 +364,7 @@
                                 alt="Pizza" class="w-16 h-16 rounded-lg object-cover">
                             <div class="ml-3">
                                 <h3 class="font-medium text-gray-800">Pizza</h3>
-                                <div class="flex items-center text-yellow-400 text-xs mt-1">
+                                <div class="flex items-center text-violet-400 text-xs mt-1">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -312,7 +379,7 @@
                                 alt="Salad" class="w-16 h-16 rounded-lg object-cover">
                             <div class="ml-3">
                                 <h3 class="font-medium text-gray-800">Salad</h3>
-                                <div class="flex items-center text-yellow-400 text-xs mt-1">
+                                <div class="flex items-center text-violet-400 text-xs mt-1">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -327,7 +394,7 @@
                                 alt="Curry" class="w-16 h-16 rounded-lg object-cover">
                             <div class="ml-3">
                                 <h3 class="font-medium text-gray-800">Curry</h3>
-                                <div class="flex items-center text-yellow-400 text-xs mt-1">
+                                <div class="flex items-center text-violet-400 text-xs mt-1">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -340,9 +407,16 @@
                 </div>
 
 
-                <div class="bg-white rounded-2xl card-shadow p-6">
-                    <h2 class="text-xl font-bold text-gray-800 flex items-center mb-6">
-                        <i class="fas fa-trophy text-yellow-500 mr-2"></i> Achievements
+                <div class="backdrop-blur-md bg-white/20 rounded-2xl card-shadow p-6">
+                    <h2 class="text-xl font-bold text-gray-800 flex gap-2 items-center mb-6">
+                        <lord-icon
+    src="https://cdn.lordicon.com/olaidovj.json"
+    trigger="in"
+    delay="150"
+    state="in-reveal"
+    colors="primary:#ffc738,secondary:#ffffff,tertiary:#ebe6ef,quaternary:#8930e8"
+    style="width:40px;height:40px">
+</lord-icon> Achievements
                     </h2>
 
                     <div class="grid grid-cols-3 gap-4">
@@ -372,9 +446,16 @@
                     </div>
                 </div>
 
-                <div class="bg-white rounded-2xl card-shadow p-6">
-                    <h2 class="text-xl font-bold text-gray-800 flex items-center mb-6">
-                        <i class="fas fa-sliders-h text-blue-500 mr-2"></i> Food Preferences
+                <div class="backdrop-blur-md bg-white/20 rounded-2xl card-shadow p-6">
+                    <h2 class="text-xl font-bold gap-2 text-gray-800 flex items-center mb-6">
+                        <lord-icon
+    src="https://cdn.lordicon.com/snsyzslg.json"
+    trigger="in"
+    delay="150"
+    state="in-reveal"
+    colors="primary:#3a3347,secondary:#ffffff,tertiary:#646e78,quaternary:#c69cf4,quinary:#8930e8,senary:#6c16c7,septenary:#ebe6ef,octonary:#e83a30"
+    style="width:40px;height:40px">
+</lord-icon> Food Preferences
                     </h2>
 
                     <div class="space-y-3">
