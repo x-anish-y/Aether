@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Find your recipe</title>
+  <link rel="stylesheet" href="./src/output.css" />
+  <script src="https://cdn.lordicon.com/lordicon.js"></script>
+  <style>
+    body {
+      background: url("https://wallpapercave.com/wp/wp3104899.jpg") no-repeat center center fixed;
+      background-size: cover;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+
+  <header
+        class="rounded-br-[35px] rounded-bl-[35px] sticky top-0 z-50 backdrop-blur-md bg-white/20 border-b border-white/30 text-white body-font">
+        <div class=" mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+            <a class="hover:scale-110 transition-all flex title-font font-bold items-center text-white mb-4 md:mb-0">
+                <img src="Logo.jpg" width="40px" class="rounded-full" alt="">
+                <span class="ml-3 text-xl font-bold">BAHANA</span>
+            </a>
+            <nav
+                class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400 flex text-gray-100 flex-wrap items-center text-base justify-center">
+                <a href="home.html" class="mr-5 transition-all hover:font-bold hover:scale-105 hover:text-white ">HOME</a>
+                <a href="#" class="mr-5 transition-all hover:font-bold hover:scale-105 hover:text-white ">YOUR RECIPE</a>
+                <a href="#" class="mr-5  transition-all hover:font-bold hover:scale-105 hover:text-white ">ABOUT US</a>
+            </nav>
+            <lord-icon class=" hover:scale-110 transition-all invert hidden md:block" src="https://cdn.lordicon.com/bushiqea.json" trigger="hover"
+                style="width:40px;height:40px"></lord-icon>
+        </div>
+    </header>
+
+  <main class="flex flex-col justify-center items-center py-16 space-y-12">
+
+    <div class="flex flex-col md:flex-row gap-8 items-start w-full max-w-5xl">
+
+      <div class="w-full md:w-1/2 h-72">
+        <label for="file-upload"
+          class="flex flex-col justify-center items-center h-full border-2 border-dashed border-gray-300 rounded-lg 
+                 text-center cursor-pointer bg-white shadow-md hover:border-blue-400 transition">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-gray-400 mb-4" fill="none"
+               viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M7 16a4 4 0 01-.88-7.903A5.5 5.5 0 1118.5 14H17m-5-3v6m0 0l-3-3m3 3l3-3"/>
+          </svg>
+
+          <p class="text-gray-600 text-sm">
+            Drag and drop or <span class="text-blue-500 underline">upload an image</span>
+          </p>
+        </label>
+        <input id="file-upload" type="file" class="hidden" />
+      </div>
+
+      <div id="recipe-steps" class="w-full md:w-1/2 h-72 bg-white p-6 rounded-lg shadow-md overflow-y-auto">
+        <h2 class="text-xl font-semibold text-gray-800 mb-4">Recipe Steps</h2>
+        <div id="paneer-tikka" class="mb-6">
+          <h3 class="font-medium text-gray-900">Paneer Tikka</h3>
+          <ol class="list-decimal list-inside space-y-1 text-gray-700">
+            <li>Marinate paneer with yogurt and spices.</li>
+            <li>Skewer with veggies.</li>
+            <li>Grill until golden brown.</li>
+            <li>Serve hot with chutney.</li>
+          </ol>
+        </div>
+        <div id="veggie-pasta" class="mb-6">
+          <h3 class="font-medium text-gray-900">Veggie Pasta</h3>
+          <ol class="list-decimal list-inside space-y-1 text-gray-700">
+            <li>Boil pasta until al dente.</li>
+            <li>Sauté vegetables with olive oil.</li>
+            <li>Add tomato sauce & spices.</li>
+            <li>Mix pasta & garnish with basil.</li>
+          </ol>
+        </div>
+        <div id="stir-fry">
+          <h3 class="font-medium text-gray-900">Vegetable Stir Fry</h3>
+          <ol class="list-decimal list-inside space-y-1 text-gray-700">
+            <li>Chop assorted vegetables.</li>
+            <li>Stir fry in sesame oil.</li>
+            <li>Add soy sauce & garlic.</li>
+            <li>Serve with rice or noodles.</li>
+          </ol>
+        </div>
+      </div>
+
+    </div>
+
+    <section class="text-gray-600 body-font w-full">
+      <div class="container px-5 mx-auto">
+        <div class="flex flex-wrap -m-4 justify-center">
+
+          <div class="p-4 md:w-1/3 w-full">
+            <a href="#paneer-tikka">
+              <div class="h-full border-2 border-gray-200 rounded-lg overflow-hidden bg-white shadow-md hover:shadow-lg transition">
+                <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="https://bing.com/th?id=OSK.604d9a439cb00d32875d08842ef36ebb" alt="Paneer Tikka">
+                <div class="p-6">
+                  <h1 class="title-font text-lg font-medium text-gray-900 mb-2">Paneer Tikka</h1>
+                  <p class="text-sm text-gray-500 mb-1">Vegetarian | Quick</p>
+                  <p class="text-sm text-gray-500 mb-3">Time to prepare: 25 mins</p>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="p-4 md:w-1/3 w-full">
+            <a href="#veggie-pasta">
+              <div class="h-full border-2 border-gray-200 rounded-lg overflow-hidden bg-white shadow-md hover:shadow-lg transition">
+                <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="https://bing.com/th?id=OSK.0ff9bbab23b2d87248e290ae348e875e" alt="Veggie Pasta">
+                <div class="p-6">
+                  <h1 class="title-font text-lg font-medium text-gray-900 mb-2">Veggie Pasta</h1>
+                  <p class="text-sm text-gray-500 mb-1">Vegetarian | Quick</p>
+                  <p class="text-sm text-gray-500 mb-3">Time to prepare: 20 mins</p>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="p-4 md:w-1/3 w-full">
+            <a href="#stir-fry">
+              <div class="h-full border-2 border-gray-200 rounded-lg overflow-hidden bg-white shadow-md hover:shadow-lg transition">
+                <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="https://bing.com/th?id=OSK.b58cde29c7d6a77370caa3c5fb22fcc6" alt="Vegetable Stir Fry">
+                <div class="p-6">
+                  <h1 class="title-font text-lg font-medium text-gray-900 mb-2">Vegetable Stir Fry</h1>
+                  <p class="text-sm text-gray-500 mb-1">Vegetarian | Quick</p>
+                  <p class="text-sm text-gray-500 mb-3">Time to prepare: 15 mins</p>
+                </div>
+              </div>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>
