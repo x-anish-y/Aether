@@ -29,7 +29,7 @@ Bahana addresses these issues through **AI-powered ingredient recognition and an
 # 💡 Solution
 
 ![BAHANA Architecture](Screenshot%202026-03-11%20125424.png)
-<br><br>
+
 Bahana transforms a user’s fridge or kitchen ingredients into **instant recipe recommendations** through:
 
 - Camera-based ingredient detection  
