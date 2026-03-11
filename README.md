@@ -1,71 +1,164 @@
-# Bahana – *Khaana Hai Toh Banana Hai*  
+# 🍳 Bahana – *Khaana Hai Toh Banana Hai*
 
-## 📌 Overview  
-**Bahana** is a budget-friendly, offline-first recipe finder web app designed to solve one of the most common daily dilemmas: *“What’s for dinner?”*  
-By scanning the ingredients in your fridge, Bahana instantly suggests tailored recipes without the need for manual input, internet dependency, or paid subscriptions.  
+**Bahana** is a budget-friendly, offline-first recipe discovery web application designed to solve one of the most common everyday problems:  
 
-This project was developed by **Team AlgoRHYTHMS** under the theme **UI/UX and Frontend Design** for **Problem Statement 8: Budget-Friendly Recipe Finder**.  
+> *“What can I cook with the ingredients I already have?”*
 
----
+Using on-device AI and camera-based ingredient scanning, Bahana instantly suggests recipes tailored to the ingredients available in your kitchen. The platform works even without an internet connection, making it accessible, privacy-friendly, and highly practical for everyday use.
 
-## ✨ Features  
-- **Ingredient Scanner**  
-  - Live camera scanning with animated guides.  
-  - On-device AI (TensorFlow Lite/WebNN) for privacy-first ingredient detection.  
-  - Real-time progress feedback with smooth microinteractions.  
-
-- **Recipe Discovery**  
-  - Beautiful two-column recipe grid with vibrant cards.  
-  - Sticky filter bar for instant refinements.  
-  - Offline browsing powered by IndexedDB caching.  
-
-- **Guided Cooking Mode**  
-  - Step-by-step cooking instructions with images.  
-  - Voice assistance (Web Speech API) for hands-free cooking.  
-  - Built-in timers and progress tracking.  
-
-- **Offline-First Architecture**  
-  - Works seamlessly without internet.  
-  - Local storage of recipes, preferences, and grocery lists.  
-  - Service workers for fast loading (under 200ms).  
-
-- **Budget-Friendly & Sustainable**  
-  - Suggests meals using what you already own.  
-  - Reduces unnecessary grocery trips and food waste.  
-  - Supports household savings and eco-friendly living.  
+This project was developed by **Team AlgoRHYTHMS** under the theme **UI/UX and Frontend Design** for **Problem Statement 8: Budget-Friendly Recipe Finder**.
 
 ---
 
-## 🛠 Tech Stack  
-- **Frontend:** React + Preact  
-- **AI/ML:** TensorFlow Lite / WebNN (on-device inference)  
-- **Offline Support:** IndexedDB + Service Workers  
-- **Voice & Audio:** Web Speech API, Web Audio  
-- **UI/UX:** Clean, vibrant design with 60fps animations, microinteractions, and accessibility-first approach  
+# 📌 Problem
+
+Many households struggle with:
+
+- Deciding what to cook daily  
+- Managing leftover ingredients  
+- Avoiding unnecessary grocery purchases  
+- Reducing food waste  
+
+Existing recipe platforms typically require manual ingredient input and rely heavily on internet connectivity.
+
+Bahana addresses these issues through **AI-powered ingredient recognition and an offline-first design philosophy.**
 
 ---
 
-## 🚀 Implementation Roadmap  
-1. **Core UI Build** – React + Preact integration with camera & scanning flow.  
-2. **AI Model Integration** – Train and compress ingredient recognition models.  
-3. **Recipe Engine** – Recipe grid, guided cooking mode, voice prompts.  
-4. **Smart Features** – Grocery list overlay, API integration, widget support.  
-5. **Optimizations** – Privacy toggles, offline-first refinement, cross-browser/device consistency.  
+# 💡 Solution
+
+Bahana transforms a user’s fridge or kitchen ingredients into **instant recipe recommendations** through:
+
+- Camera-based ingredient detection  
+- Local AI processing for privacy and speed  
+- Offline recipe access  
+- Guided cooking instructions  
+
+The platform eliminates friction in meal planning and encourages sustainable cooking habits.
 
 ---
 
-## 📊 Impact  
-- Reduces *household food waste by up to 30%*.  
-- Saves *monthly expenses* by preventing extra grocery runs.  
-- Turns *dinner paralysis* into quick, inspired decisions.  
-- Creates a *habit-forming daily engagement* loop.  
+# ✨ Core Features
+
+## 📷 Ingredient Scanner
+- Live camera scanning interface with animated guides  
+- On-device ingredient recognition using **TensorFlow Lite / WebNN**  
+- Real-time visual feedback during scanning  
+- Privacy-first processing (no cloud uploads)
 
 ---
 
-## 🎨 Prototype  
-👉 [Website](https://bahana.netlify.app/)  
+## 🍽️ Recipe Discovery
+- Responsive two-column recipe grid  
+- Vibrant recipe cards with quick previews  
+- Sticky filter bar for instant refinement  
+- Offline browsing via **IndexedDB caching**
 
 ---
 
-## 🙏 Acknowledgements  
-Special thanks to **Aether HackConquest Hackathon** and **Thakur College of Engineering & Technology (TCET), Mumbai** for providing the platform to innovate, learn, and showcase Bahana.  
+## 👨‍🍳 Guided Cooking Mode
+- Step-by-step cooking instructions with visuals  
+- Voice guidance via **Web Speech API** for hands-free cooking  
+- Integrated cooking timers  
+- Progress tracking throughout the recipe
+
+---
+
+## 🌐 Offline-First Architecture
+- Fully functional without internet access  
+- Recipes, preferences, and lists stored locally  
+- Service Workers for lightning-fast loading (<200ms)
+
+---
+
+## 💰 Budget-Friendly & Sustainable
+- Recommends meals using existing ingredients  
+- Reduces unnecessary grocery spending  
+- Minimizes household food waste  
+- Encourages sustainable kitchen habits
+
+---
+
+# 🛠 Technology Stack
+
+| Layer | Technology |
+|------|-------------|
+| Frontend | React + Preact |
+| AI/ML | TensorFlow Lite / WebNN |
+| Offline Storage | IndexedDB |
+| Performance | Service Workers |
+| Voice Assistance | Web Speech API |
+| UI/UX | Accessibility-first design with microinteractions |
+
+---
+
+# 🚀 Implementation Roadmap
+
+### Phase 1 – Core UI Development
+- Camera scanning interface  
+- Recipe grid and UI flows  
+- Responsive design system
+
+### Phase 2 – AI Integration
+- Ingredient recognition model training  
+- Model compression for on-device inference
+
+### Phase 3 – Cooking Engine
+- Guided cooking interface  
+- Voice instructions  
+- Step progress tracking
+
+### Phase 4 – Smart Utilities
+- Grocery list generator  
+- API integrations  
+- Home screen widgets
+
+### Phase 5 – Optimization
+- Offline performance tuning  
+- Privacy controls  
+- Cross-browser compatibility
+
+---
+
+# 📊 Expected Impact
+
+Bahana can help:
+
+- Reduce **household food waste by up to 30%**
+- Lower **monthly grocery expenses**
+- Simplify everyday cooking decisions
+- Promote sustainable and efficient kitchen habits
+
+---
+
+# 🎨 Live Prototype
+
+👉 https://bahana.netlify.app/
+
+---
+
+# 👥 Team
+
+**Team AlgoRHYTHMS**
+
+- Jayaditya Saloi  
+- Aneesh Sawant  
+- Anish Sasmal  
+- Saish Raut  
+
+---
+
+# 🙏 Acknowledgements
+
+Special thanks to:
+
+- **Aether HackConquest Hackathon**
+- **Thakur College of Engineering & Technology (TCET), Mumbai**
+
+for providing the platform to innovate, collaborate, and bring this idea to life.
+
+---
+
+# 🌱 Vision
+
+Bahana aims to become an everyday kitchen assistant that transforms available ingredients into delicious meals — making cooking simpler, smarter, and more sustainable.
